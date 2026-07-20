@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Devenez Praticien(ne) Certifié(e) Havening® | Formation France</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #ffffff; color: #444;
+  font-size: 18px; line-height: 1.7; overflow-x: hidden;
+}
+.col      { max-width:700px; margin:0 auto; padding:0 24px; }
+.col-wide { max-width:920px; margin:0 auto; padding:0 24px; }
+.section    { padding:72px 0; }
+.section-sm { padding:48px 0; }
+.bg-gray    { background:#f7f7f7; }
+hr.divider  { border:none; border-top:1px solid #e5e5e5; margin:0; }
+
+/* ── Typographie ── */
+h1 {
+  font-size: clamp(2.2rem,5vw,3.2rem); font-weight:800;
+  line-height:1.1; color:#2C3E6B; margin-bottom:24px; letter-spacing:-0.02em;
+}
+h1 em { font-style:italic; font-weight:800; }
+h2 {
+  font-size: clamp(1.7rem,3.5vw,2.2rem); font-weight:700;
+  line-height:1.2; color:#2C3E6B; margin-bottom:18px; letter-spacing:-0.015em;
+}
+h3 { font-size:1.05rem; font-weight:700; color:#2C3E6B; line-height:1.35; margin-bottom:6px; }
+p  { font-size:1rem; color:#444; line-height:1.8; margin-bottom:16px; }
+p:last-child { margin-bottom:0; }
+p strong, li strong { font-weight:700; color:#2C3E6B; }
+.lead { font-size:1.15rem; color:#444; line-height:1.85; }
+.lead strong { color:#2C3E6B; font-weight:700; }
+
+/* ── Bouton CTA or ── */
+.btn-cta {
+  display:inline-block; background:#D4AF37; color:#2C3E6B;
+  font-family:inherit; font-size:0.95rem; font-weight:700;
+  letter-spacing:0.04em; text-decoration:none; text-transform:uppercase;
+  padding:16px 32px; border-radius:6px; border:none; cursor:pointer;
+  transition:background 0.2s, box-shadow 0.2s, transform 0.15s; line-height:1;
+}
+.btn-cta:hover { background:#C4A030; box-shadow:0 6px 20px rgba(212,175,55,0.35); transform:translateY(-1px); }
+.btn-cta-full { display:block; width:100%; text-align:center; }
+
+.cta-block { text-align:center; padding:40px 0 16px; }
+.cta-note  { display:block; font-size:0.84rem; color:#888; font-style:italic; margin-top:14px; line-height:1.65; }
+.cta-note strong { color:#555; }
+
+/* ── Stars ── */
+.stars { color:#f59e0b; font-size:1rem; letter-spacing:3px; }
+
+/* ── Témoignage héro ── */
+.hero-testi {
+  margin-top:40px; display:flex; gap:16px; align-items:flex-start;
+  padding:22px 26px; background:#fafafa; border:1px solid #e8e8e8; border-radius:10px;
+}
+.hero-av {
+  width:52px; height:52px; border-radius:50%; background:#e0e0e0; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.95rem; color:#888;
+}
+.testi-quote { font-size:0.97rem; color:#333; line-height:1.65; margin-bottom:8px !important; }
+.testi-name  { font-size:0.82rem; font-weight:600; color:#888; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:2px !important; }
+.testi-job   { font-size:0.82rem; color:#aaa; margin-bottom:0 !important; }
+
+/* ── Blockquote ── */
+.persona-quote {
+  border-left:4px solid #4A9ED6; border-radius:0 8px 8px 0;
+  background:#f0f8fd; padding:24px 32px; margin:32px 0;
+  font-style:italic; font-size:1.08rem; color:#333; line-height:1.8;
+}
+.persona-quote cite {
+  display:block; margin-top:12px; font-style:normal;
+  font-size:0.8rem; font-weight:600; color:#4A9ED6; letter-spacing:0.05em; text-transform:uppercase;
+}
+
+/* ── SVG checkmark ── */
+.chk { width:26px; height:26px; flex-shrink:0; margin-top:1px; }
+
+/* ── Listes pain points ── */
+.content-list { list-style:none; margin:24px 0; display:flex; flex-direction:column; }
+.content-list li {
+  display:flex; gap:14px; align-items:flex-start;
+  padding:20px 0; border-bottom:1px solid #efefef; font-size:1rem; color:#444; line-height:1.75;
+}
+.content-list li:first-child { border-top:1px solid #efefef; }
+
+/* ── Méthode ── */
+.method-cards { display:flex; flex-direction:column; margin:28px 0; }
+.method-card {
+  display:flex; gap:14px; align-items:flex-start;
+  padding:20px 0; border-bottom:1px solid #efefef;
+}
+.method-card:first-child { border-top:1px solid #efefef; }
+
+/* ── Grille capsules vidéo ── */
+.vcaps-section { background:#f7f7f7; padding:72px 0; }
+.vcaps-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:32px; }
+.vcap-card {
+  background:#fff; border:1px solid #e5e5e5; border-radius:10px; overflow:hidden;
+  transition:border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.vcap-card:hover { border-color:#4A9ED6; transform:translateY(-3px); box-shadow:0 10px 28px rgba(0,0,0,0.09); }
+
+/* Thumbnail 16:9 iframe directe YouTube, joue dans la page */
+.vcap-thumb {
+  position:relative; width:100%; padding-top:56.25%; background:#0d0d0d; overflow:hidden;
+}
+.vcap-thumb iframe {
+  position:absolute; inset:0; width:100%; height:100%; border:none; display:block;
+}
+
+.vcap-info { padding:16px 18px 18px; }
+.vcap-theme-tag {
+  display:inline-block; background:#f0f8fd; color:#2C3E6B;
+  font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+  padding:3px 10px; border-radius:50px; margin-bottom:10px; border:1px solid #c5e3f5;
+}
+.vcap-name    { font-size:0.95rem; font-weight:700; color:#2C3E6B; margin-bottom:3px; }
+.vcap-role    { font-size:0.8rem; color:#888; font-style:italic; margin-bottom:10px; }
+.vcap-excerpt { font-size:0.9rem; font-style:italic; color:#555; line-height:1.6; border-left:2px solid #e5e5e5; padding-left:12px; }
+
+/* ── Témoignages écrits grille 2 colonnes ── */
+.tc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+.tc-card {
+  border-radius: 12px;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.tc-blue { background: #EEF5FB; border: 1px solid #c5e3f5; }
+.tc-gold { background: #FDF8ED; border: 1px solid #e8d48a; }
+.tc-card .tc-stars { color: #f59e0b; font-size: 0.85rem; letter-spacing: 2px; }
+.tc-result {
+  font-size: 1.05rem; font-weight: 700; color: #2C3E6B;
+  line-height: 1.3; margin: 0;
+}
+.tc-body {
+  font-size: 0.92rem; color: #555; line-height: 1.7; margin: 0; flex: 1;
+}
+.tc-footer {
+  display: flex; align-items: center; gap: 12px;
+  padding-top: 14px; border-top: 1px solid rgba(0,0,0,0.08); margin-top: auto;
+}
+.tc-av {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(44,62,107,0.12); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700; color: #2C3E6B;
+}
+.tc-card .tc-name { font-size: 0.82rem; font-weight: 700; color: #2C3E6B; margin-bottom: 1px; }
+.tc-card .tc-role { font-size: 0.75rem; color: #888; font-style: italic; line-height: 1.4; }
+@media (max-width: 640px) { .tc-grid { grid-template-columns: 1fr; } }
+
+/* ── Témoignages écrits ── */
+.testi-stack { display:flex; flex-direction:column; margin-top:28px; }
+.tc { padding:28px 0; border-bottom:1px solid #efefef; }
+.tc:first-child { border-top:1px solid #efefef; }
+.tc-stars { color:#f59e0b; font-size:0.9rem; letter-spacing:2px; margin-bottom:14px; }
+.tc-quote { font-style:italic; font-size:1rem; color:#333; line-height:1.8; margin-bottom:16px; }
+.tc-hr    { border:none; border-top:1px solid #efefef; margin-bottom:12px; }
+.tc-name  { font-size:0.88rem; font-weight:700; color:#2C3E6B; margin-bottom:3px; }
+.tc-role  { font-size:0.84rem; color:#888; font-style:italic; }
+
+
+/* ── Programme ── */
+.prog-cards { display:flex; flex-direction:column; gap:20px; margin-top:28px; }
+.prog-card  { border-radius:10px; overflow:hidden; border:1px solid #e5e5e5; }
+.prog-head  { padding:28px 32px; background:#2C3E6B; color:white; }
+.prog-head.alt { background:#1e2d52; }
+.prog-level { font-size:0.7rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; opacity:0.55; margin-bottom:8px; }
+.prog-head h3 { font-size:1.2rem; font-weight:700; line-height:1.25; margin-bottom:8px; color:white; }
+.prog-dur   { font-size:0.88rem; opacity:0.55; font-style:italic; }
+.prog-body  { background:white; padding:28px 32px; }
+.prog-feats { list-style:none; display:flex; flex-direction:column; margin-bottom:0; }
+.prog-feats li {
+  display:flex; gap:12px; align-items:flex-start;
+  font-size:0.97rem; color:#444; line-height:1.7; padding:11px 0; border-bottom:1px solid #f0f0f0;
+}
+.prog-feats li:last-child { border-bottom:none; }
+.prog-feats li::before { content:'✓'; color:#4A9ED6; font-weight:700; flex-shrink:0; margin-top:1px; }
+
+/* ── CTA programme ── */
+.prog-cta-block {
+  text-align:center; margin-top:28px; padding:32px 28px;
+  background:#fdf8e7; border:1px solid #e8d48a; border-radius:10px;
+}
+.prog-cta-pre  { font-size:1rem; color:#555; font-style:italic; margin-bottom:20px; }
+.prog-cta-note { margin-top:12px; font-size:0.84rem; color:#888; font-style:italic; }
+
+/* ── Garantie ── */
+.garantie {
+  background:#f7f7f7; border:1px solid #e5e5e5; border-radius:10px;
+  padding:22px 26px; display:flex; align-items:flex-start; gap:16px; margin-top:24px;
+}
+.garantie-label { font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#4A9ED6; margin-bottom:6px; }
+.garantie h4    { font-size:1rem; font-weight:700; color:#2C3E6B; margin-bottom:6px; }
+.garantie p     { font-size:0.95rem; color:#555; line-height:1.75; }
+
+/* ── Formatrices ── */
+.fmt-cards { display:flex; flex-direction:column; margin-top:28px; }
+.fmt-card  { padding:28px 0; border-bottom:1px solid #efefef; }
+.fmt-card:first-child { border-top:1px solid #efefef; }
+.fmt-header { display:flex; align-items:center; gap:16px; margin-bottom:14px; }
+.fmt-av {
+  width:52px; height:52px; border-radius:50%; background:#e5e7eb;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1rem; font-weight:700; color:#666; flex-shrink:0; border:1px solid #d1d5db;
+}
+.fmt-name  { font-size:1.05rem; font-weight:700; color:#2C3E6B; margin-bottom:3px; }
+.fmt-role  { font-size:0.84rem; color:#888; font-style:italic; line-height:1.5; }
+.fmt-quote { font-style:italic; font-size:0.97rem; color:#444; line-height:1.8; border-left:3px solid #e5e5e5; padding-left:16px; margin-top:4px; }
+
+/* ── Qualification ── */
+.qual-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:28px; }
+.qc        { border-radius:10px; padding:22px 20px; }
+.qoui { background:#f0f8fd; border:1px solid #c5e3f5; }
+.qnon { background:#fff5f5; border:1px solid #fecaca; }
+.qc h3 { font-size:0.9rem; margin-bottom:14px; }
+.qoui h3 { color:#1a5a8a; }
+.qnon h3  { color:#991b1b; }
+.qlist { list-style:none; display:flex; flex-direction:column; }
+.qlist li {
+  display:flex; gap:10px; align-items:flex-start;
+  padding:9px 0; border-bottom:1px solid rgba(0,0,0,0.06);
+  font-size:0.92rem; color:#444; line-height:1.6;
+}
+.qlist li:last-child { border-bottom:none; }
+.co { color:#4A9ED6; font-weight:700; flex-shrink:0; margin-top:1px; }
+.cn { color:#dc2626; font-weight:700; flex-shrink:0; margin-top:1px; }
+
+/* ── FAQ ── */
+.faq-list { margin:28px 0; }
+.faq-item { border-bottom:1px solid #e5e5e5; }
+.faq-item:first-child { border-top:1px solid #e5e5e5; }
+.faq-btn {
+  width:100%; background:none; border:none; cursor:pointer; text-align:left; padding:20px 0;
+  display:flex; justify-content:space-between; align-items:center; gap:20px;
+  font-family:inherit; font-size:1rem; font-weight:600; color:#2C3E6B; transition:color 0.2s;
+}
+.faq-btn:hover { color:#4A9ED6; }
+.faq-ico { font-size:1.4rem; color:#aaa; flex-shrink:0; transition:transform 0.25s; line-height:1; }
+.faq-btn.open .faq-ico { transform:rotate(45deg); color:#4A9ED6; }
+.faq-ans { display:none; padding:0 0 20px; font-size:0.97rem; color:#555; line-height:1.8; }
+
+/* ── Footer ── */
+footer { background:#2C3E6B; padding:48px 0 32px; }
+.footer-inner { display:flex; flex-direction:column; align-items:center; text-align:center; gap:16px; }
+.footer-logo  { font-size:1rem; font-weight:700; color:rgba(255,255,255,0.8); }
+.footer-desc  { font-size:0.86rem; color:rgba(255,255,255,0.4); line-height:1.8; max-width:500px; }
+.footer-legal { font-size:0.72rem; color:rgba(255,255,255,0.22); max-width:500px; line-height:1.7; }
+.footer-legal a { color:rgba(255,255,255,0.25); }
+.footer-copy  { font-size:0.72rem; color:rgba(255,255,255,0.18); padding-top:18px; border-top:1px solid rgba(255,255,255,0.1); }
+
+/* ── Responsive ── */
+@media (max-width:640px) {
+  body { font-size:17px; }
+  .col, .col-wide { padding:0 16px; }
+  .section { padding:56px 0; }
+  h1 { font-size:2rem; }
+  h2 { font-size:1.55rem; }
+  .qual-cols  { grid-template-columns:1fr; }
+  .vcaps-grid { grid-template-columns:1fr; gap:16px; }
+  .btn-cta    { width:100%; text-align:center; }
+  .hero-testi { flex-direction:column; }
+  .prog-body, .prog-head { padding:22px 18px; }
+  .garantie   { flex-direction:column; }
+}
+</style>
+</head>
+<body>
+
+<!-- SECTION 1 HÉRO -->
+<section class="section" style="padding-top:80px; padding-bottom:72px;">
+  <div class="col">
+    <h1>Libérez ce que vos autres outils<br/><em>ne peuvent pas atteindre.</em></h1>
+    <p class="lead">Devenez Praticien(ne) Certifié(e) Havening® la méthode des neurosciences qui transforme durablement traumas, phobies et angoisses. Animée par <strong>Susan Cortese &amp; Aurélie Penndu-Ouaknine</strong>, formatrices certifiées, formation certifiée en francophonie.</p>
+    <div style="margin-top:32px;">
+      <a href="formulaire.html" class="btn-cta">JE RÉSERVE MON APPEL GRATUIT</a>
+    </div>
+    <div class="hero-testi">
+      <div class="hero-av">AA</div>
+      <div>
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="testi-quote">« Dans ma pratique j'ai rencontré beaucoup de sujets en rapport avec le traumatisme. Formée en hypnose puis en EMDR il restait encore des situations qui me donnaient du fil à retordre. J'ai fini par rencontrer le Havening. Tout le volet neurophysiologique m'a intéressée. <strong>Ça faisait sens.</strong> »</p>
+        <p class="testi-name">Assia Asri</p>
+        <p class="testi-job">Praticienne certifiée Havening®, EMDR &amp; EFT</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SECTION 2 PERSONA -->
+<section class="section">
+  <div class="col">
+    <h2>Vous êtes déjà formé(e).<br/>Et pourtant, certains cas résistent.</h2>
+    <p>Sophrologie, EFT, EMDR, hypnose, PNL, coaching systémique vous maîtrisez vos outils. Vous accompagnez avec bienveillance et expérience. Mais il reste des situations qui vous donnent du fil à retordre. Vous continuez à chercher quelque chose qui aille plus loin.</p>
+    <blockquote class="persona-quote">
+      « Dans ma pratique j'ai rencontré beaucoup de sujets en rapport avec le traumatisme. Formée en hypnose puis en EMDR il restait encore des situations qui me donnaient du fil à retordre. Je continuais à chercher. J'ai fini par rencontrer le Havening. Tout le volet neurophysiologique m'a intéressée. <strong>Ça faisait sens.</strong> »
+      <cite>Assia Asri · Praticienne certifiée Havening®, EMDR &amp; EFT</cite>
+    </blockquote>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SECTION 3 PAIN POINTS -->
+<section class="section bg-gray">
+  <div class="col">
+    <h2>Vous reconnaissez-vous<br/>dans ces situations ?</h2>
+    <ul class="content-list">
+      <li>
+        <svg class="chk" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="13" fill="#4A9ED6"/><polyline points="7,13 11,17 19,9" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong>Vos séances stagnent sur certains traumas.</strong><br/>Certaines charges émotionnelles restent inaccessibles par la parole seule. Le soulagement reste partiel. Vous savez qu'il y a plus mais vos outils actuels n'y arrivent pas.</div>
+      </li>
+      <li>
+        <svg class="chk" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="13" fill="#4A9ED6"/><polyline points="7,13 11,17 19,9" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong>Il vous manque l'ancrage neuroscientifique.</strong><br/>Vos clients souvent exigeants, cultivés demandent des explications scientifiques. Vous ressentez qu'un fil conducteur manque pour aller plus loin et crédibiliser votre approche.</div>
+      </li>
+      <li>
+        <svg class="chk" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="13" fill="#4A9ED6"/><polyline points="7,13 11,17 19,9" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong>La reviviscence épuise vos séances.</strong><br/>Certains protocoles demandent à vos clients de revivre l'événement douloureux. C'est épuisant pour eux comme pour vous. Il existe une voie plus douce, plus sécurisante pour tout le monde.</div>
+      </li>
+      <li>
+        <svg class="chk" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="13" fill="#4A9ED6"/><polyline points="7,13 11,17 19,9" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong>Certains clients restent bloqués malgré tout.</strong><br/>Croyances limitantes, habitudes ancrées, émotions envahissantes des nœuds que ni la parole, ni vos techniques habituelles ne parviennent à dénouer durablement.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SECTION 4 LA MÉTHODE -->
+<section class="section">
+  <div class="col">
+    <h2>Ce n'est pas magique.<br/>C'est neuroscientifique.</h2>
+    <p>On nous le dit souvent, après une séance : <strong>« Mais… c'est magique ! »</strong> Et on comprend pourquoi. Les émotions s'apaisent, le corps respire, le passé ne fait plus aussi mal.</p>
+    <p>Ce n'est pas un miracle : <strong>c'est la puissance des neurosciences appliquées au soin émotionnel.</strong> Le Havening® a été conçu par le Dr Ronald Ruden (Harvard, Mt. Sinai School of Medicine) pour dissoudre les blocages là où ils s'étaient installés dans l'amygdale.</p>
+    <blockquote class="persona-quote">
+      « Pour moi, il y a un avant et un après le Havening®. C'est la première technique qui m'a permis d'accompagner trauma et émotions avec précision, douceur et une étonnante rapidité. »
+      <cite>Aurélie Penndu-Ouaknine · Formatrice certifiée Havening®</cite>
+    </blockquote>
+    <h3 style="margin-top:32px; margin-bottom:0;">Les 3 mécanismes qui changent tout :</h3>
+    <div class="method-cards">
+      <div class="method-card">
+        <svg class="chk" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="13" fill="#4A9ED6"/><polyline points="7,13 11,17 19,9" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><h3>Désactiver les encodages traumatiques</h3><p>Le toucher psycho-sensoriel spécifique active les ondes delta et libère des neurotransmetteurs apaisants, dépotentialisant les récepteurs AMPA dans l'amygdale. La charge émotionnelle s'efface durablement.</p></div>
+      </div>
+      <div class="method-card">
+        <svg class="chk" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="13" fill="#4A9ED6"/><polyline points="7,13 11,17 19,9" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><h3>Ré-écrire l'histoire émotionnelle</h3><p>En mobilisant la neuroplasticité, le Havening® reprogramme les souvenirs douloureux en douceur sans avoir à revivre l'événement. Le passé reste accessible, mais sa charge émotionnelle disparaît.</p></div>
+      </div>
+      <div class="method-card">
+        <svg class="chk" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="13" fill="#4A9ED6"/><polyline points="7,13 11,17 19,9" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><h3>S'intégrer naturellement à votre pratique</h3><p>Le Havening® est conçu pour compléter pas remplacer. Il s'intègre en 10 minutes au milieu d'une séance d'hypnose, de coaching ou d'EFT. Chaque praticien l'adapte à son univers. C'est sa force.</p></div>
+      </div>
+    </div>
+    <div class="cta-block">
+      <a href="formulaire.html" class="btn-cta">JE RÉSERVE MON APPEL GRATUIT</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SECTION 5 CAPSULES VIDÉO iframes YouTube directes, plein écran possible -->
+<section class="vcaps-section" id="temoignages">
+  <div class="col-wide">
+    <div style="max-width:700px; margin:0 auto; padding:0 24px;">
+      <h2>Des praticiens comme vous —<br/>avant &amp; après le Havening®</h2>
+      <p style="color:#555; margin-top:8px;">8 praticiens certifiés témoignent en vidéo. Chacun ressemble peut-être à votre prochain avant/après.</p>
+    </div>
+    <div class="vcaps-grid">
+
+      <div class="vcap-card">
+        <div class="vcap-thumb">
+          <iframe src="https://www.youtube-nocookie.com/embed/2Y4aPY_aAiM?rel=0&modestbranding=1&color=white" title="Anne Rigaud Walker Havening®" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        </div>
+        <div class="vcap-info">
+          <span class="vcap-theme-tag">Découverte sur scène</span>
+          <div class="vcap-name">Anne Rigaud Walker</div>
+          <div class="vcap-role">Thérapeute RTT &amp; hypnose certifiée Havening®</div>
+          <p class="vcap-excerpt">"J'avais jamais vu ça" la démonstration qui l'a convaincue en 5 minutes.</p>
+        </div>
+      </div>
+
+      <div class="vcap-card">
+        <div class="vcap-thumb">
+          <iframe src="https://www.youtube-nocookie.com/embed/m8uNyORZWqs?rel=0&modestbranding=1&color=white" title="Sébastien Roger Havening®" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        </div>
+        <div class="vcap-info">
+          <span class="vcap-theme-tag">Blocages émotionnels profonds</span>
+          <div class="vcap-name">Sébastien Roger</div>
+          <div class="vcap-role">Coach transition de carrière certifié Havening®</div>
+          <p class="vcap-excerpt">"Son passé ne va plus dicter son avenir" les blocages que rien d'autre ne débloquerait.</p>
+        </div>
+      </div>
+
+      <div class="vcap-card">
+        <div class="vcap-thumb">
+          <iframe src="https://www.youtube-nocookie.com/embed/d1nTHNxgK-o?rel=0&modestbranding=1&color=white" title="Assia Asri Havening®" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        </div>
+        <div class="vcap-info">
+          <span class="vcap-theme-tag">EMDR &amp; EFT limites dépassées</span>
+          <div class="vcap-name">Assia Asri</div>
+          <div class="vcap-role">Praticienne certifiée Havening®, EMDR &amp; EFT</div>
+          <p class="vcap-excerpt">"Ça faisait sens" ce que le volet neurophysiologique lui a apporté en plus de l'EMDR.</p>
+        </div>
+      </div>
+
+      <div class="vcap-card">
+        <div class="vcap-thumb">
+          <iframe src="https://www.youtube-nocookie.com/embed/MORXqnJ2fpM?rel=0&modestbranding=1&color=white" title="Nadège Saysana Havening®" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        </div>
+        <div class="vcap-info">
+          <span class="vcap-theme-tag">Trauma d'enfance résolu en 1h</span>
+          <div class="vcap-name">Nadège Saysana</div>
+          <div class="vcap-role">Coach certifiée Havening®</div>
+          <p class="vcap-excerpt">Depuis ses 6 ans elle ne savait plus sa gauche de sa droite résolu en moins d'1h.</p>
+        </div>
+      </div>
+
+      <div class="vcap-card">
+        <div class="vcap-thumb">
+          <iframe src="https://www.youtube-nocookie.com/embed/l86QuWbDgC4?rel=0&modestbranding=1&color=white" title="Karine Giraud Havening®" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        </div>
+        <div class="vcap-info">
+          <span class="vcap-theme-tag">Rapidité doute initial puis vérification</span>
+          <div class="vcap-name">Karine Giraud</div>
+          <div class="vcap-role">Art-thérapeute certifiée Havening®</div>
+          <p class="vcap-excerpt">"C'est allé trop vite" une semaine après, sa cliente n'avait plus d'angoisse.</p>
+        </div>
+      </div>
+
+      <div class="vcap-card">
+        <div class="vcap-thumb">
+          <iframe src="https://www.youtube-nocookie.com/embed/O12qx7CHIMM?rel=0&modestbranding=1&color=white" title="Pierre Valla Havening®" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        </div>
+        <div class="vcap-info">
+          <span class="vcap-theme-tag">Neurosciences amygdale &amp; sécurité</span>
+          <div class="vcap-name">Pierre Valla</div>
+          <div class="vcap-role">Thérapeute intégratif certifié Havening®</div>
+          <p class="vcap-excerpt">"C'est l'amygdale qui mène le bal" pourquoi ce thérapeute cherchait cet outil depuis des années.</p>
+        </div>
+      </div>
+
+      <div class="vcap-card">
+        <div class="vcap-thumb">
+          <iframe src="https://www.youtube-nocookie.com/embed/PdjAirt2N_8?rel=0&modestbranding=1&color=white" title="Christophe Barbez Havening®" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        </div>
+        <div class="vcap-info">
+          <span class="vcap-theme-tag">En une séance vs sophrologie</span>
+          <div class="vcap-name">Christophe Barbez</div>
+          <div class="vcap-role">Sophrologue certifié Havening®</div>
+          <p class="vcap-excerpt">"En une séance on fait sauter des choses incroyables" un sophrologue compare.</p>
+        </div>
+      </div>
+
+      <div class="vcap-card">
+        <div class="vcap-thumb">
+          <iframe src="https://www.youtube-nocookie.com/embed/A2jwwsX2fCQ?rel=0&modestbranding=1&color=white" title="Assia Asri trauma vicariant Havening®" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        </div>
+        <div class="vcap-info">
+          <span class="vcap-theme-tag">Protection du praticien</span>
+          <div class="vcap-name">Assia Asri</div>
+          <div class="vcap-role">Praticienne certifiée Havening®, EMDR &amp; EFT</div>
+          <p class="vcap-excerpt">Le Havening® protège aussi le praticien ce que les autres techniques ne font pas.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cta-block">
+      <a href="formulaire.html" class="btn-cta">JE RÉSERVE MON APPEL GRATUIT</a>
+      <span class="cta-note">À l'issue de l'appel, si nous pouvons vous aider, nous vous expliquerons le cursus en détail et les tarifs<br/>(<strong>Niveau 1, Niveau 2, supervision ou communauté</strong>).<br/>Appel offert · Sans engagement · Susan ou Aurélie vous rappelle sous 48h.</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SECTION 6 TÉMOIGNAGES ÉCRITS grille 2 colonnes condensée -->
+<section class="section">
+  <div class="col">
+    <h2>Havening® a transformé<br/>leur pratique</h2>
+    <div class="tc-grid">
+
+      <div class="tc-card tc-blue">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-result">« En une séance on fait sauter des choses incroyables. »</p>
+        <p class="tc-body">En sophrologie, il faut plusieurs séances pour traiter une situation. Avec le Havening, parfois en une séance… Les clients disent : <strong>« c'est impressionnant votre truc. »</strong></p>
+        <div class="tc-footer">
+          <div class="tc-av">CB</div>
+          <div><div class="tc-name">Christophe Barbez</div><div class="tc-role">Sophrologue certifié Havening®</div></div>
+        </div>
+      </div>
+
+      <div class="tc-card tc-gold">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-result">« Mon outil principal. »</p>
+        <p class="tc-body">Les techniques de Havening® sont une savante combinaison de tous mes outils : sophrologie, théorie polyvagale, EFT. <strong>Le Havening® devient mon outil principal</strong>, de par son efficacité et sa base neuroscientifique.</p>
+        <div class="tc-footer">
+          <div class="tc-av">AF</div>
+          <div><div class="tc-name">Aglaia Falaaleva</div><div class="tc-role">Thérapeute psycho-corporelle, Sophrologue, EFT</div></div>
+        </div>
+      </div>
+
+      <div class="tc-card tc-gold">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-result">« Une bascule. Un allègement. »</p>
+        <p class="tc-body">À chaque fois, quelque chose se passait. Une clarté intérieure. Certains clients m'ont recontactée : <strong>« On pourrait refaire une séance de Havening® ? Ça m'avait vraiment aidée. »</strong></p>
+        <div class="tc-footer">
+          <div class="tc-av">VB</div>
+          <div><div class="tc-name">Véronique Blein</div><div class="tc-role">Coach certifiée HEC, Psychologie positive</div></div>
+        </div>
+      </div>
+
+      <div class="tc-card tc-blue">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-result">« Un soulagement dès la 1ère séance. »</p>
+        <p class="tc-body">Un des aspects les plus gratifiants est la rapidité avec laquelle mes clientes ressentent des changements. <strong>Lors de la première séance, beaucoup expriment déjà un soulagement émotionnel.</strong></p>
+        <div class="tc-footer">
+          <div class="tc-av">CJ</div>
+          <div><div class="tc-name">Corinne Jardin</div><div class="tc-role">Coach Santé, Centre « Poids à la Ligne »</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SECTION 7 PROGRAMME -->
+<section class="section bg-gray" id="programme">
+  <div class="col">
+    <h2>Une certification en 2 étapes,<br/>pratique et immédiatement applicable</h2>
+    <p>Nous avons conçu ce programme pour qu'il soit concret et ancré dans la réalité du terrain. Vous repartez avec des outils que vous pouvez utiliser dès le lendemain.</p>
+    <div class="prog-cards">
+      <div class="prog-card">
+        <div class="prog-head">
+          <div class="prog-level">Niveau 1</div>
+          <h3>Fondamentaux &amp; Application immédiate</h3>
+          <div class="prog-dur">14 heures · 4 demi-journées · Visioconférence ou présentiel</div>
+        </div>
+        <div class="prog-body">
+          <ul class="prog-feats">
+            <li>Les bases neuroscientifiques : comment le cerveau encode et relâche les traumas</li>
+            <li>Les 7 techniques fondamentales du Havening®, gestes complets inclus</li>
+            <li>Mises en pratique guidées : vous ressentez la transformation avant de la proposer</li>
+            <li>Animé par Susan Cortese &amp; Aurélie Penndu-Ouaknine, formatrices certifiées</li>
+            <li>Praticable avec vos clients dès la fin de la formation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-head alt">
+          <div class="prog-level">Niveau 2</div>
+          <h3>Supervision avancée &amp; Certification officielle</h3>
+          <div class="prog-dur">À votre rythme · Après le Niveau 1</div>
+        </div>
+        <div class="prog-body">
+          <ul class="prog-feats">
+            <li>Supervision de 20 cas écrits avec feedback personnalisé</li>
+            <li>Validation de 3 vidéos de mise en pratique</li>
+            <li>QCM de validation des neurosciences</li>
+            <li>Accès au réseau international de praticiens</li>
+            <li>Certification officielle Havening Techniques® (Ronald Ruden)</li>
+            <li>Droit d'utilisation du logo officiel Havening® dans votre pratique</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="garantie">
+      <div>
+        <div class="garantie-label">Praticable immédiatement</div>
+        <h4>Dès le lendemain de la formation</h4>
+        <p>Dès la fin du Niveau 1, vous êtes autorisé(e) à pratiquer avec vos clients aucun délai d'attente. Vous intégrez immédiatement le Havening® à vos séances existantes, comme complément naturel à tous vos outils actuels.</p>
+      </div>
+    </div>
+    <div class="prog-cta-block">
+      <p class="prog-cta-pre">Dates, tarifs, questions sur le programme ?</p>
+      <a href="formulaire.html" class="btn-cta">JE RÉSERVE MON APPEL GRATUIT</a>
+      <p class="prog-cta-note">Appel offert · Sans engagement · Susan ou Aurélie vous rappelle sous 48h</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SECTION 9 FORMATRICES -->
+<section class="section bg-gray">
+  <div class="col">
+    <h2>Deux praticiennes passionnées,<br/>expertes, convaincues.</h2>
+    <div class="fmt-cards">
+      <div class="fmt-card">
+        <div class="fmt-header">
+          <div class="fmt-av">AP</div>
+          <div>
+            <div class="fmt-name">Aurélie Penndu-Ouaknine</div>
+            <div class="fmt-role">Pharmacienne, naturopathe, florithérapeute, praticienne certifiée Inner Bonding &amp; formatrice certifiée Havening®</div>
+          </div>
+        </div>
+        <p class="fmt-quote">« Pour moi, il y a un avant et un après le Havening®. Passionnée par la sphère émotionnelle, j'ai exploré de nombreuses approches, mais le Havening® est la première technique qui m'a permis d'accompagner trauma et émotions avec précision, douceur et une étonnante rapidité. »</p>
+      </div>
+      <div class="fmt-card">
+        <div class="fmt-header">
+          <div class="fmt-av">SC</div>
+          <div>
+            <div class="fmt-name">Susan Cortese</div>
+            <div class="fmt-role">Maître-praticienne en PNL, coach certifiée, formatrice des soft skills depuis 30 ans première formatrice Havening® en France</div>
+          </div>
+        </div>
+        <p class="fmt-quote">« Ma rencontre avec le Havening® a eu lieu en accompagnant une amie profondément traumatisée. J'ai alors assisté à une transformation bouleversante, en un temps record. Curieuse de comprendre, je me suis formée… jusqu'à devenir en France la première formatrice. »</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SECTION 10 CANDIDATURE -->
+<section class="section">
+  <div class="col">
+    <h2>Candidature :</h2>
+    <h2 style="margin-top:6px;">Cette formation est-elle faite pour vous ?</h2>
+    <p>Pour garantir le succès de chaque participant, nous accompagnons les profils qui bénéficient le plus de notre système de supervision personnalisée.</p>
+    <div class="qual-cols">
+      <div class="qc qoui">
+        <h3>Nous pouvons vous aider si…</h3>
+        <ul class="qlist">
+          <li><span class="co">✓</span>Vous êtes thérapeute, coach ou professionnel(le) de l'accompagnement</li>
+          <li><span class="co">✓</span>Vous voulez enrichir votre pratique avec un outil fondé sur les neurosciences</li>
+          <li><span class="co">✓</span>Vous avez des clients bloqués sur des nœuds émotionnels profonds</li>
+          <li><span class="co">✓</span>Vous cherchez une voie douce pour accompagner les traumas sans reviviscence</li>
+          <li><span class="co">✓</span>Vous êtes prêt(e) à pratiquer et superviser vos cas pour progresser</li>
+        </ul>
+      </div>
+      <div class="qc qnon">
+        <h3>Ce n'est pas pour vous si…</h3>
+        <ul class="qlist">
+          <li><span class="cn">✗</span>Vous cherchez une technique miracle sans formation sérieuse</li>
+          <li><span class="cn">✗</span>Vous n'exercez aucune activité d'accompagnement ou de relation d'aide</li>
+          <li><span class="cn">✗</span>Vous n'avez pas l'intention de pratiquer avec vos clients</li>
+          <li><span class="cn">✗</span>Vous n'êtes pas ouvert(e) à l'approche neuro-sensorielle du soin</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:22px; font-style:italic; color:#888; font-size:0.94rem;">Pas sûr(e) que ce soit le bon moment ? Un appel suffit pour le savoir.</p>
+    <div class="cta-block" style="padding-top:20px;">
+      <a href="formulaire.html" class="btn-cta">JE RÉSERVE MON APPEL GRATUIT</a>
+      <span class="cta-note">Sans engagement · Gratuit · Vous repartez avec des réponses claires, quelle que soit votre décision.</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SECTION 11 FAQ -->
+<section class="section bg-gray">
+  <div class="col">
+    <h2>FAQ (Foire Aux Questions)</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-btn">Cette formation est-elle adaptée à mon métier ?<span class="faq-ico">+</span></button>
+        <div class="faq-ans">Elle s'adresse à tous les professionnels du bien-être, de la relation d'aide et de la santé mentale : psychologues, coachs, hypnothérapeutes, praticiens EFT, EMDR, sophrologues, naturopathes, kinésiologues, art-thérapeutes… et à tous ceux qui accompagnent des personnes sur leur chemin de transformation, quel que soit leur profil.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">Le Niveau 1 suffit-il pour pratiquer avec mes clients ?<span class="faq-ico">+</span></button>
+        <div class="faq-ans">Oui. Dès la fin du Niveau 1, vous pouvez utiliser le Havening® avec vos clients en tant que praticien(ne) en cours de certification. Vous commencez à valider vos 20 cas. Vous ne pourrez pas encore vous revendiquer « Praticien(ne) Certifié(e) Havening® » ni utiliser le logo officiel c'est l'objet du Niveau 2.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">Le Havening® est-il compatible avec ma pratique actuelle ?<span class="faq-ico">+</span></button>
+        <div class="faq-ans">Oui. Le Havening® est conçu pour s'intégrer à toutes les pratiques thérapeutiques : hypnose, EFT, coaching, EMDR, thérapies somatiques, systémiques… Il vient enrichir ce que vous faites déjà notamment sur les cas où vos outils actuels atteignent leurs limites. Certains praticiens l'utilisent en 10 minutes au milieu d'une séance d'une autre méthode.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">Ce n'est pas ésotérique ?<span class="faq-ico">+</span></button>
+        <div class="faq-ans">Non. Le Havening® repose sur des mécanismes biologiques documentés : amygdale, récepteurs AMPA, ondes delta fondés sur plus de 20 ans de recherche du Dr Ronald Ruden (Harvard, Mt. Sinai). Comme le dit une praticienne certifiée : « Ce n'est pas un truc ésotérique. Il y a de la science derrière. Et il suffit de tester pour se rendre compte que ça peut être formidable. »</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">Comment se passe la certification officielle ?<span class="faq-ico">+</span></button>
+        <div class="faq-ans">Pour être certifié(e), vous soumettez 20 cas écrits supervisés, 3 vidéos démonstratives, et réussissez un QCM scientifique. Une fois validé(e), vous êtes Praticien(ne) Certifié(e) Havening® et pouvez utiliser le logo officiel international dans votre pratique.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn">Ai-je besoin d'équipement particulier ?<span class="faq-ico">+</span></button>
+        <div class="faq-ans">Non. Le Havening® ne nécessite aucun outil technique. Il repose sur le toucher spécifique et la présence du praticien. La formation en visioconférence fonctionne parfaitement vous apprenez et pratiquez les protocoles à distance dans le confort de votre espace.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="col">
+    <div class="footer-inner">
+      <div class="footer-logo">Techniques de Havening®</div>
+      <p class="footer-desc">Susan Cortese et Aurélie Penndu-Ouaknine sont formatrices certifiées des Techniques de Havening®. Centre de Formation Havening® France formation certifiée en francophonie.</p>
+      <p class="footer-legal">Havening Techniques est une marque déposée de Ronald Ruden, 15 East 91st Street, New York. <a href="https://havening.org" target="_blank">www.havening.org</a></p>
+      <div class="footer-copy">© 2026 techniquesdehavening.fr Tous droits réservés</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const isOpen = btn.classList.contains('open');
+    document.querySelectorAll('.faq-btn').forEach(b => {
+      b.classList.remove('open');
+      b.nextElementSibling.style.display = 'none';
+    });
+    if (!isOpen) {
+      btn.classList.add('open');
+      btn.nextElementSibling.style.display = 'block';
+    }
+  });
+});
+</script>
+</body>
+</html>
