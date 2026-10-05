@@ -153,6 +153,15 @@
     });
   }
 
+  /* === TÉLÉPHONE au format international exigé par ActiveCampaign (+33…) === */
+  function normPhone(v) {
+    var s = String(v || '').replace(/[^\d+]/g, '');
+    if (s.indexOf('00') === 0) s = '+' + s.slice(2);          // 0033… → +33…
+    if (/^0\d{9}$/.test(s)) s = '+33' + s.slice(1);           // 06… → +336…
+    else if (/^[1-9]\d{8}$/.test(s)) s = '+33' + s;           // 6… (9 chiffres) → +336…
+    return s;
+  }
+
   /* ============================================================
      QUESTIONNAIRE (3 étapes, progression conservée)
   ============================================================ */
@@ -246,7 +255,7 @@
         var inp = q.querySelector('input'); var v = inp.value.trim();
         if (!v) msg = 'Ce champ est obligatoire.';
         else if (inp.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) msg = 'Cette adresse email ne semble pas valide (exemple : nom@domaine.fr).';
-        else if (inp.type === 'tel' && v.replace(/\D/g, '').length < 9) msg = 'Merci d\u2019indiquer un numéro de téléphone complet.';
+        else if (inp.type === 'tel' && !/^\+\d{8,15}$/.test(normPhone(v))) msg = 'Merci d\u2019indiquer un numéro complet (ex. 06 12 34 56 78, ou +32… / +41… hors de France).';
       }
       setErr(q, msg);
       return !msg;
@@ -281,7 +290,7 @@
         return arr.join(' | ');
       };
       var F = (CFG.ac && CFG.ac.fields) || {};
-      var acData = { firstname: d.prenom.trim(), lastname: d.nom.trim(), email: d.email.trim(), phone: d.telephone.trim() };
+      var acData = { firstname: d.prenom.trim(), lastname: d.nom.trim(), email: d.email.trim(), phone: normPhone(d.telephone) };
       var map = {
         activite: d.activite, precision: d.precision,
         source: ctx.source, situations: withOther(d.situations, 'situations_autre'),
@@ -295,8 +304,22 @@
       btn.disabled = true;
       status.textContent = 'Enregistrement de vos réponses…';
 
-      acSubmit((CFG.ac || {}).questionnaireFormId, acData).then(function (r) {
-        if (r.ok === false && r.msg !== 'réseau') { console.warn('ActiveCampaign :', r.msg); }
+      var formId = (CFG.ac || {}).questionnaireFormId;
+      acSubmit(formId, acData).then(function (r) {
+        // Si AC refuse uniquement le téléphone : on renvoie sans lui pour ne pas perdre le contact
+        if (r.ok === false && /t[ée]l[ée]phone|phone/i.test(r.msg || '') && acData.phone) {
+          console.warn('ActiveCampaign (téléphone refusé, nouvel envoi sans téléphone) :', r.msg);
+          delete acData.phone;
+          return acSubmit(formId, acData);
+        }
+        return r;
+      }).then(function (r) {
+        if (r.ok === false && r.msg !== 'réseau') {
+          console.warn('ActiveCampaign :', r.msg);
+          status.textContent = 'L\u2019enregistrement n\u2019a pas abouti : ' + (r.msg || 'erreur inconnue') + '. Merci de vérifier vos coordonnées puis de réessayer.';
+          btn.disabled = false;
+          return;
+        }
         track('form_submit', { activite: d.activite, horizon: d.horizon }, true);
         store.set('hv_contact', { prenom: acData.firstname, nom: acData.lastname, email: acData.email, telephone: acData.phone });
         store.set('hv_form', { data: d, step: current });
