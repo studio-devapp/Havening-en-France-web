@@ -231,7 +231,9 @@ footer{background:var(--ink);padding:44px 0 28px}
 .steps-mini{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:22px}
 .steps-mini span{font-family:var(--poppins);font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:20px;background:var(--bg-alt);color:var(--soft);border:1px solid var(--border)}
 .steps-mini span.done{background:var(--accent-bg);color:var(--accent);border-color:rgba(27,108,168,.2)}
-.calendly-box{min-height:700px;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff}
+.calendly-box{height:760px;transition:height .2s}
+.calendly-box iframe{width:100%;height:100%;border:none}
+body[data-page="creneau"] .col-w{max-width:1080px}
 .notice{background:#FFF8E6;border:1px solid #F1D79A;border-radius:12px;padding:18px 22px;font-size:.95rem;color:#6B5310;line-height:1.6}
 .confirm{display:none;text-align:center;padding:48px 24px;border:1px solid rgba(27,108,168,.2);border-radius:16px;background:var(--accent-bg)}
 .confirm.show{display:block}
@@ -253,7 +255,7 @@ footer{background:var(--ink);padding:44px 0 28px}
   .form-nav{flex-direction:column-reverse}
   .form-nav .btn-ghost{width:100%}
   .sticky-cta{display:block}
-  .calendly-box{min-height:900px}
+  .calendly-box{height:1050px}
 }
 
 /* === ANIMATIONS SCROLL === */
