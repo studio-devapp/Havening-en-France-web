@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Choisissez votre créneau | Appel découverte Havening®</title>
+<meta name="description" content="Choisissez le créneau de votre appel découverte Havening® de 20 minutes.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/havening.css">
+<!-- MESURE : coller ici le code Google Tag Manager et/ou Meta Pixel.
+     Le script envoie déjà page_view, cta_click, form_start, form_submit,
+     calendar_view, booking_confirmed dans window.dataLayer (et fbq si présent). -->
+</head>
+<body data-page="creneau" data-root="../">
+
+<main class="col-w">
+  <!-- === EN-TÊTE === -->
+  <div class="slot-head">
+    <div class="steps-mini" aria-label="Progression">
+      <span class="done">✓ Questionnaire enregistré</span><span class="done">2. Choix du créneau</span>
+    </div>
+    <span class="eyebrow">Appel découverte Havening®</span>
+    <h1 style="font-size:clamp(1.7rem,4vw,2.4rem);">Merci, vos réponses sont <span class="hl">bien enregistrées.</span></h1>
+    <p class="lead" style="max-width:600px;margin:0 auto;">Choisissez maintenant le moment qui vous convient pour un échange de 20 minutes avec Aurélie. Gratuit et sans engagement.</p>
+  </div>
+
+  <!-- === CONFIRMATION (affichée après réservation) === -->
+  <div class="confirm" id="booking-confirm" role="status" aria-live="polite">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1B6CA8"/><polyline points="6,12 10,16 18,8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h2>Votre appel est réservé.</h2>
+    <p>Vous allez recevoir un email de confirmation avec le lien et les informations pratiques, puis un rappel avant l’appel. À très bientôt !</p>
+  </div>
+
+  <!-- === CALENDLY (URL à renseigner dans assets/config.js) === -->
+  <div class="notice" id="calendly-notice" hidden>Le calendrier n’est pas encore configuré : renseignez <strong>calendlyUrl</strong> dans <code>assets/config.js</code>.</div>
+  <div class="calendly-box" id="calendly-box"></div>
+
+  <p class="center"><a class="back-link" href="../#questionnaire">← Modifier mes réponses</a></p>
+  <div style="height:56px"></div>
+</main>
+
+<!-- === FOOTER === -->
+<footer>
+  <div class="col">
+    <div class="footer-inner">
+      <div class="footer-logo">Techniques de Havening®</div>
+      <p class="footer-desc">Susan Cortese et Aurélie Penndu-Ouaknine sont formatrices certifiées des Techniques de Havening®. Centre de Formation Havening® France.</p>
+      <p class="footer-legal">Havening Techniques® est une marque déposée de Ronald Ruden, New York. <a href="https://havening.org" target="_blank" rel="noopener">www.havening.org</a></p>
+      <div class="footer-links"><a href="#" data-link="mentions">Mentions légales</a><a href="#" data-link="confidentialite">Politique de confidentialité</a></div>
+      <div class="footer-copy">© 2026 formationhavening.fr — Tous droits réservés</div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/config.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>
