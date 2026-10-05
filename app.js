@@ -288,7 +288,8 @@
         approches: withOther(d.approches, 'approches_autre'), objectif: d.objectif, horizon: d.horizon,
         utm_campaign: ctx.utm_campaign || '', utm_content: ctx.utm_content || ''
       };
-      Object.keys(map).forEach(function (k) { if (F[k]) acData['field[' + F[k] + ']'] = map[k] || ''; });
+      // Les réponses vides ne sont pas envoyées : elles n'effacent jamais une donnée déjà présente dans AC
+      Object.keys(map).forEach(function (k) { if (F[k] && map[k] && String(map[k]).trim()) acData['field[' + F[k] + ']'] = map[k]; });
 
       var btn = form.querySelector('[type=submit]');
       btn.disabled = true;
