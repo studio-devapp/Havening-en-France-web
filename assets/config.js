@@ -15,7 +15,7 @@ window.HV_CONFIG = {
   /* === CALENDLY ===
      REMPLACER par l'URL de l'événement 20 minutes d'Aurélie
      (ex. https://calendly.com/aurelie-xxx/appel-decouverte-havening). */
-  calendlyUrl: "",
+  calendlyUrl: "https://calendly.com/aurelie-penndu/new-meeting",
 
   /* === ACTIVECAMPAIGN (méthode proc.php, contourne le CORS) === */
   ac: {
