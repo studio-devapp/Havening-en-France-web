@@ -286,7 +286,11 @@
       var d = serialize();
       var withOther = function (list, otherKey) {
         var arr = (list || []).slice();
-        if (d[otherKey] && d[otherKey].trim()) arr.push('Autre : ' + d[otherKey].trim());
+        if (d[otherKey] && d[otherKey].trim()) {
+          // La précision remplace la case « Autre … » (évite « Autre situation | Autre : … »)
+          arr = arr.filter(function (v) { return !/^Autre /.test(v); });
+          arr.push('Autre : ' + d[otherKey].trim());
+        }
         return arr.join(' | ');
       };
       var F = (CFG.ac && CFG.ac.fields) || {};
