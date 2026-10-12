@@ -29,7 +29,7 @@ window.HV_CONFIG = {
     /* Formulaire n°2 : à créer dans AC (champ email seul),
        réglé pour AJOUTER le tag "reservation-confirmee".
        Laisser vide tant qu'il n'existe pas. */
-    bookingFormId: "",
+    bookingFormId: "8",
 
     /* Numéros des champs personnalisés AC (field[N]).
        Champs vides = non envoyés. Créer les champs manquants dans AC,
