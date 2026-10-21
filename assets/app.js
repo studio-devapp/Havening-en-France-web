@@ -34,14 +34,69 @@
     var payload = Object.assign({ event: name, source: ctx.source || 'inconnu' }, extra || {});
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(payload);
+    // Meta : uniquement les deux conversions utiles (PageView est envoyé au chargement du Pixel)
     if (typeof window.fbq === 'function') {
       if (name === 'form_submit') window.fbq('track', 'Lead');
       else if (name === 'booking_confirmed') window.fbq('track', 'Schedule');
-      else window.fbq('trackCustom', name, payload);
     }
     if (once) { sent[name] = 1; store.set('hv_sent', sent); }
   }
   window.hvTrack = track;
+
+  /* ============================================================
+     CONSENTEMENT COOKIES + META PIXEL
+     Le Pixel n'est chargé qu'après « Accepter ». Choix mémorisé 6 mois.
+  ============================================================ */
+  var CONSENT_KEY = 'hv_consent';
+  function getConsent() {
+    try {
+      var c = JSON.parse(localStorage.getItem(CONSENT_KEY));
+      if (c && c.t && (Date.now() - c.t) < 182 * 24 * 3600 * 1000) return c.v;
+    } catch (e) {}
+    return null;
+  }
+  function setConsent(v) { try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ v: v, t: Date.now() })); } catch (e) {} }
+  function loadPixel() {
+    if (!CFG.metaPixelId || window.fbq) return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    window.fbq('init', CFG.metaPixelId);
+    window.fbq('track', 'PageView');
+  }
+  var banner = null;
+  function showBanner() {
+    if (!CFG.metaPixelId) return;
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.className = 'cookie-banner';
+      banner.setAttribute('role', 'dialog');
+      banner.setAttribute('aria-label', 'Gestion des cookies');
+      banner.innerHTML =
+        '<p>Nous utilisons un cookie de mesure Meta pour savoir quelles publicités vous ont amené ici. Il n\u2019est activé qu\u2019avec votre accord. ' +
+        '<a href="' + (CFG.confidentialiteUrl || '#') + '">En savoir plus</a></p>' +
+        '<div class="cookie-actions"><button type="button" class="btn-ghost" data-consent="denied">Refuser</button>' +
+        '<button type="button" class="btn-ghost cookie-accept" data-consent="granted">Accepter</button></div>';
+      banner.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-consent]'); if (!b) return;
+        var v = b.getAttribute('data-consent'), before = getConsent();
+        setConsent(v);
+        banner.hidden = true; body.classList.remove('cookie-open');
+        if (v === 'granted') loadPixel();
+        else if (before === 'granted') location.reload(); // retrait d'accord : on recharge sans Pixel
+      });
+      document.body.appendChild(banner);
+    }
+    banner.hidden = false; body.classList.add('cookie-open');
+  }
+  var consent = getConsent();
+  if (consent === 'granted') loadPixel();
+  else if (consent === null) showBanner();
+  document.querySelectorAll('[data-link="cookies"]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); showBanner(); });
+  });
 
   /* === DATES DE SESSION (source unique : config.js) === */
   var today = new Date(); today.setHours(0, 0, 0, 0);

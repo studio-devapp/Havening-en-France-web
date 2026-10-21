@@ -47,6 +47,10 @@ window.HV_CONFIG = {
     }
   },
 
+  /* === META PIXEL ===
+     Chargé uniquement après accord du visiteur (bandeau cookies). Vide = désactivé. */
+  metaPixelId: "2088643361918756",
+
   /* === LIENS LÉGAUX === REMPLACER par les vraies URL */
   mentionsLegalesUrl: "#",
   confidentialiteUrl: "#"
