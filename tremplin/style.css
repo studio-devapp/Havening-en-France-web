@@ -1,0 +1,334 @@
+/* =====================================================================
+   TUNNEL TREMPLIN — STYLE PARTAGÉ
+   Reprend l'identité de la page de vente en ligne (assets/havening.css) :
+   bleu institutionnel, Poppins pour les titres, Inter pour le texte.
+   ===================================================================== */
+
+/* === VARIABLES === */
+:root {
+  --b900: #0F1923;
+  --b800: #155A8E;
+  --b600: #1B6CA8;
+  --b100: #E8F2FA;
+  --b050: #F4F6F9;
+  --cream: #FFFFFF;
+  --linen: #F4F6F9;
+  --border: #E2E6EC;
+  --gold: #C49A3C;
+  --gold-p: #FBF6EA;
+  --ink: #0F1923;
+  --ink2: #2A3544;
+  --mid: #556070;
+  --ok: #2F6B4F;
+  --ok-bg: #EAF4EE;
+  --error: #B42318;
+  --serif: 'Poppins', sans-serif;   /* titres, comme la page de vente en ligne */
+  --sans: 'Inter', sans-serif;      /* texte courant */
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink2);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--b600); }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+.col { max-width: 680px; margin: 0 auto; padding: 0 22px; }
+
+/* === EN-TÊTE (logo seul, pas de menu) === */
+.site-header {
+  padding: 26px 0 22px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-family: var(--serif);
+  color: var(--b800);
+  line-height: 1.15;
+  text-decoration: none;
+  display: inline-block;
+}
+.logo small {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--mid);
+  font-weight: 500;
+}
+.logo strong { font-size: 1.3rem; font-weight: 700; }
+
+/* === TITRES === */
+h1 {
+  font-family: var(--serif);
+  font-weight: 800;
+  color: var(--b900);
+  font-size: clamp(1.9rem, 5.6vw, 2.7rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  color: var(--b900);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+.lead { font-size: 1.08rem; color: var(--mid); }
+
+/* === BOUTON === */
+.btn {
+  display: flex;
+  width: 100%;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 28px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--b600);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.btn:hover { background: var(--b800); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(15,25,35,.12); }
+.btn:disabled { background: var(--mid); cursor: wait; transform: none; box-shadow: none; }
+
+/* === PAGE 1 : FORMULAIRE === */
+.intro { padding: 48px 0 28px; }
+.intro h1 { margin-bottom: 18px; }
+.facts {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  margin-top: 24px;
+}
+.facts li { display: flex; gap: 12px; align-items: flex-start; }
+.facts svg { flex: 0 0 22px; margin-top: 3px; }
+
+.form-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px 14px 14px 4px;
+  padding: 28px 22px;
+  margin: 8px 0 56px;
+  box-shadow: 0 12px 34px rgba(15,25,35,.06);
+}
+.form-grid { display: grid; gap: 18px; }
+.field label { display: block; font-weight: 500; font-size: .95rem; color: var(--b900); margin-bottom: 6px; }
+.field input {
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color .2s ease, background .2s ease;
+}
+.field input:focus { outline: none; border-color: var(--b600); background: #fff; box-shadow: 0 0 0 3px var(--b100); }
+.field input[aria-invalid="true"] { border-color: var(--error); }
+.field .hint { font-size: .85rem; color: var(--mid); margin-top: 4px; }
+.field .err { font-size: .88rem; color: var(--error); margin-top: 4px; min-height: 0; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.consent { font-size: .85rem; color: var(--mid); line-height: 1.55; }
+.form-error {
+  display: none;
+  background: #FBECE7;
+  color: var(--error);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: .95rem;
+}
+.form-error.show { display: block; }
+
+/* === PAGE 2 : TREMPLIN === */
+
+/* Les 3 étapes : vraie séquence, d'où la numérotation */
+.steps {
+  display: flex;
+  list-style: none;
+  gap: 6px;
+  margin: 28px 0 0;
+  font-size: .85rem;
+  color: var(--mid);
+}
+.steps li { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.steps li::before {
+  content: "";
+  height: 4px;
+  border-radius: 4px;
+  background: var(--border);
+}
+.steps li.done::before { background: var(--ok); }
+.steps li.current::before { background: var(--gold); }
+.steps li.current { color: var(--b900); font-weight: 500; }
+
+.confirm {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--ok-bg);
+  color: var(--ok);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 22px 0 30px;
+  font-size: .98rem;
+}
+.confirm svg { flex: 0 0 22px; margin-top: 2px; }
+.confirm strong { font-weight: 500; }
+
+.tremplin-head h1 { margin-bottom: 26px; }
+
+/* Vidéo 16:9 */
+.video {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 14px 14px 14px 4px;
+  overflow: hidden;
+  background: var(--b900);
+}
+.video iframe, .video .video-ph { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-ph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: rgba(255,255,255,.82);
+  text-align: center;
+  padding: 20px;
+  font-size: .95rem;
+}
+.video-ph .play {
+  width: 68px; height: 68px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.5);
+  display: grid; place-items: center;
+}
+.video-caption { font-size: .88rem; color: var(--mid); margin-top: 10px; text-align: center; }
+
+.benefit { text-align: center; padding: 40px 0 8px; }
+.benefit h2 { margin-bottom: 12px; }
+.benefit p { color: var(--mid); max-width: 560px; margin: 0 auto; }
+
+.booking { padding: 40px 0 16px; }
+.booking h2 { text-align: center; margin-bottom: 10px; }
+.booking .lead { text-align: center; font-size: 1rem; margin-bottom: 22px; }
+.calendar {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  min-height: 300px;
+}
+.calendly-inline-widget { min-width: 280px; height: 1000px; }
+.calendar-ph {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 30px 22px;
+  color: var(--mid);
+  background: var(--b050);
+}
+.booked {
+  display: none;
+  background: var(--ok-bg);
+  color: var(--ok);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-top: 16px;
+  text-align: center;
+}
+.booked.show { display: block; }
+
+.why {
+  background: var(--linen);
+  margin-top: 48px;
+  padding: 48px 0 52px;
+}
+.why-inner { display: grid; gap: 22px; align-items: center; }
+.duo { display: flex; justify-content: center; }
+.duo span {
+  width: 84px; height: 84px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--b800);
+  background: var(--b100);
+  border: 3px solid var(--linen);
+}
+.duo span + span { margin-left: -16px; background: var(--gold-p); }
+.duo img { width: 100%; max-width: 220px; border-radius: 14px; display: block; }
+.why h2 { font-size: 1.35rem; margin-bottom: 10px; }
+.why p { color: var(--ink2); }
+.why .sign { font-style: italic; font-size: 1rem; font-weight: 500; color: var(--b800); margin-top: 12px; }
+
+/* === PIED DE PAGE MINIMAL === */
+.site-footer {
+  padding: 26px 0 34px;
+  text-align: center;
+  font-size: .85rem;
+  color: var(--mid);
+}
+.site-footer a { color: var(--mid); margin: 0 8px; }
+.why + .site-footer { background: var(--linen); border-top: 1px solid var(--border); }
+
+/* === BANDEAU COOKIES (même logique que la page de vente) === */
+.cookie-banner {
+  position: fixed; left: 10px; right: 10px; bottom: 10px; z-index: 100;
+  max-width: 720px; margin: 0 auto;
+  background: #fff; border: 1px solid var(--border); border-radius: 14px;
+  box-shadow: 0 10px 34px rgba(15,25,35,.12);
+  padding: 16px; display: flex; flex-direction: column; gap: 14px;
+}
+.cookie-banner[hidden] { display: none; }
+.cookie-banner p { font-size: .88rem; line-height: 1.55; color: var(--ink2); }
+.cookie-actions { display: flex; gap: 10px; }
+.cookie-btn {
+  flex: 1; min-height: 44px; padding: 10px 18px;
+  font: inherit; font-size: .95rem; font-weight: 500;
+  border-radius: 8px; cursor: pointer;
+  background: #fff; color: var(--b800); border: 1.5px solid var(--b600);
+}
+.cookie-btn:hover { background: var(--b100); }
+
+/* === ÉCRAN LARGE === */
+@media (min-width: 768px) {
+  body { font-size: 18px; }
+  .form-card { padding: 36px 40px; }
+  .form-grid.two { grid-template-columns: 1fr 1fr; }
+  .form-grid.two .full { grid-column: 1 / -1; }
+  .intro { padding: 72px 0 34px; }
+  .why-inner { grid-template-columns: 200px 1fr; gap: 36px; }
+  .btn { width: auto; display: inline-flex; }
+  .form-card .btn { width: 100%; display: flex; }
+  .cookie-banner { left: 16px; right: 16px; bottom: 16px; flex-direction: row; align-items: center; padding: 18px 20px; }
+  .cookie-actions { flex-shrink: 0; }
+  .cookie-btn { flex: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Réservez votre appel découverte | Havening® France</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="config.js"></script>
+<script src="pixel.js"></script>
+</head>
+<body>
+
+<!-- === EN-TÊTE === -->
+<header class="site-header">
+  <div class="logo">
+    <small>Centre de formation</small>
+    <strong>Havening® France</strong>
+  </div>
+</header>
+
+<main class="col">
+
+  <!-- === INTRODUCTION === -->
+  <section class="intro">
+    <h1>Réservez votre appel découverte Havening®</h1>
+    <p class="lead">Vingt minutes avec l'équipe pédagogique pour voir comment les Techniques de Havening® peuvent compléter votre pratique : EMDR, EFT, hypnose, coaching ou thérapie.</p>
+    <ul class="facts">
+      <li>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span>20 minutes par téléphone</span>
+      </li>
+      <li>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v8H4v-8M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg>
+        <span>Offert et sans engagement</span>
+      </li>
+      <li>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        <span>Avec une formatrice certifiée par le Dr Ronald Ruden</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- === FORMULAIRE COURT (4 champs) === -->
+  <section class="form-card" aria-labelledby="form-title">
+    <h2 id="form-title" style="font-size:1.35rem;margin-bottom:6px;">Vos coordonnées</h2>
+    <p class="consent" style="margin-bottom:22px;">Vous choisirez votre créneau à l'étape suivante.</p>
+
+    <form id="tremplin-form" novalidate>
+      <div class="form-grid two">
+        <div class="field">
+          <label for="prenom">Prénom</label>
+          <input id="prenom" name="prenom" type="text" autocomplete="given-name" required>
+          <p class="err" id="prenom-err" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="nom">Nom</label>
+          <input id="nom" name="nom" type="text" autocomplete="family-name" required>
+          <p class="err" id="nom-err" role="alert"></p>
+        </div>
+        <div class="field full">
+          <label for="email">Adresse email</label>
+          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
+          <p class="err" id="email-err" role="alert"></p>
+        </div>
+        <div class="field full">
+          <label for="tel">Téléphone</label>
+          <input id="tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" required>
+          <p class="hint">Nous vous appellerons à ce numéro au créneau choisi.</p>
+          <p class="err" id="tel-err" role="alert"></p>
+        </div>
+
+        <!-- Piège anti-robots : reste vide pour un humain -->
+        <div class="hp" aria-hidden="true">
+          <label for="site">Ne pas remplir</label>
+          <input id="site" name="site" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="full">
+          <p class="form-error" id="form-error" role="alert"></p>
+          <button class="btn" type="submit" id="submit-btn">Réserver mon appel découverte</button>
+          <p class="consent" style="margin-top:14px;">En envoyant ce formulaire, vous acceptez d'être recontacté(e) par le Centre de Formation Havening® France au sujet de la formation. <a id="privacy-link" href="#" target="_blank" rel="noopener">Confidentialité</a></p>
+        </div>
+      </div>
+    </form>
+  </section>
+
+</main>
+
+<!-- === PIED DE PAGE MINIMAL === -->
+<footer class="site-footer">
+  <a id="legal-link" href="#" target="_blank" rel="noopener">Mentions légales</a>
+  <a id="privacy-link-2" href="#" target="_blank" rel="noopener">Politique de confidentialité</a>
+  <a href="#" data-link="cookies">Gérer les cookies</a>
+</footer>
+
+<script>
+/* =====================================================================
+   FORMULAIRE → Formspree + ActiveCampaign → merci.html
+   ===================================================================== */
+(function () {
+  var C = window.TREMPLIN_CONFIG || {};
+  document.getElementById('legal-link').href = C.LEGAL_URL || '#';
+  document.getElementById('privacy-link').href = C.PRIVACY_URL || '#';
+  document.getElementById('privacy-link-2').href = C.PRIVACY_URL || '#';
+
+  /* Mémorise les paramètres utm_ de l'URL (pour savoir d'où vient le contact) */
+  var utm = {};
+  new URLSearchParams(location.search).forEach(function (v, k) {
+    if (k.indexOf('utm_') === 0 || k === 'fbclid') utm[k] = v;
+  });
+
+  var form = document.getElementById('tremplin-form');
+  var btn = document.getElementById('submit-btn');
+  var formError = document.getElementById('form-error');
+
+  var rules = {
+    prenom: function (v) { return v ? '' : 'Indiquez votre prénom.'; },
+    nom:    function (v) { return v ? '' : 'Indiquez votre nom.'; },
+    email:  function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? '' : 'Indiquez une adresse email valide, par exemple nom@domaine.fr.'; },
+    tel:    function (v) { return v.replace(/\D/g, '').length >= 9 ? '' : 'Indiquez un numéro de téléphone complet.'; }
+  };
+
+  function check(name) {
+    var input = form.elements[name];
+    var msg = rules[name](input.value.trim());
+    document.getElementById(name + '-err').textContent = msg;
+    input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    return !msg;
+  }
+  Object.keys(rules).forEach(function (n) {
+    form.elements[n].addEventListener('input', function () {
+      if (this.getAttribute('aria-invalid') === 'true') check(n);
+    });
+  });
+
+  function newEventId() {
+    return 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 9);
+  }
+
+  /* Formspree : envoi classique, renvoie true si accepté */
+  function sendFormspree(data) {
+    if (!C.FORMSPREE_ID) return Promise.resolve(false);
+    var ctrl = new AbortController();
+    var t = setTimeout(function () { ctrl.abort(); }, 8000);
+    return fetch('https://formspree.io/f/' + C.FORMSPREE_ID, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+      signal: ctrl.signal
+    }).then(function (r) { clearTimeout(t); return r.ok; })
+      .catch(function () { clearTimeout(t); return false; });
+  }
+
+  /* Téléphone au format international (+33…) : ActiveCampaign refuse les autres formats */
+  function toIntl(tel) {
+    var t = tel.replace(/[^\d+]/g, '');
+    if (t.indexOf('+') === 0) return t;
+    if (t.indexOf('00') === 0) return '+' + t.slice(2);
+    if (t.indexOf('33') === 0 && t.length === 11) return '+' + t;
+    if (t.indexOf('0') === 0 && t.length === 10) return '+33' + t.slice(1);
+    return t;
+  }
+
+  /* ActiveCampaign : méthode proc.php par balise script (contourne le CORS),
+     identique au questionnaire du site */
+  function sendActiveCampaign(d) {
+    return new Promise(function (resolve) {
+      if (!C.AC_ACCOUNT || !C.AC_FORM_ID) { console.info('[Tremplin] ActiveCampaign non configuré (config.js).'); return resolve(false); }
+      var id = C.AC_FORM_ID;
+      var q = '/proc.php?u=' + id + '&f=' + id + '&s=&c=0&m=0&act=sub&v=2&or=' + encodeURIComponent(C.AC_ORG_ID || '') +
+              '&firstname=' + encodeURIComponent(d.prenom) +
+              '&lastname=' + encodeURIComponent(d.nom) +
+              '&email=' + encodeURIComponent(d.email) +
+              '&phone=' + encodeURIComponent(d.telIntl) +
+              '&jsonp=true';
+      var s = document.createElement('script');
+      var done = false;
+      function finish(ok) { if (!done) { done = true; resolve(ok); } }
+      s.onload = function () { finish(true); };
+      s.onerror = function () { finish(false); };
+      setTimeout(function () { finish(true); }, 4000);
+      s.src = C.AC_ACCOUNT + q;
+      document.body.appendChild(s);
+    });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    formError.classList.remove('show');
+
+    var valid = ['prenom', 'nom', 'email', 'tel'].map(check).every(Boolean);
+    if (!valid) {
+      var first = form.querySelector('[aria-invalid="true"]');
+      if (first) first.focus();
+      return;
+    }
+    if (form.elements.site.value) return; /* robot */
+
+    var d = {
+      prenom: form.elements.prenom.value.trim(),
+      nom: form.elements.nom.value.trim(),
+      email: form.elements.email.value.trim(),
+      tel: form.elements.tel.value.trim()
+    };
+    d.telIntl = toIntl(d.tel);
+    var eid = newEventId();
+
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours…';
+
+    var payload = Object.assign({}, d, utm, {
+      source: C.SOURCE || 'source-tremplin',
+      page: location.href.split('?')[0],
+      event_id: eid
+    });
+
+    Promise.all([sendFormspree(payload), sendActiveCampaign(d)]).then(function (res) {
+      var anyConfigured = !!(C.FORMSPREE_ID || C.AC_PROC_URL);
+      if (anyConfigured && !res[0] && !res[1]) {
+        btn.disabled = false;
+        btn.textContent = 'Réserver mon appel découverte';
+        formError.textContent = "L'envoi n'a pas abouti. Vérifiez votre connexion internet puis cliquez à nouveau sur le bouton.";
+        formError.classList.add('show');
+        return;
+      }
+      /* Les coordonnées restent dans l'onglet (jamais dans l'adresse de la page) :
+         elles servent à pré-remplir Calendly sur la page suivante. */
+      try {
+        sessionStorage.setItem('tremplin', JSON.stringify({
+          prenom: d.prenom, nom: d.nom, email: d.email, tel: d.telIntl, eid: eid, leadSent: false
+        }));
+      } catch (err) {}
+      location.href = 'merci.html?eid=' + encodeURIComponent(eid);
+    });
+  });
+})();
+</script>
+</body>
+</html>
