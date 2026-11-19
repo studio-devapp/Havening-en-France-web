@@ -14,22 +14,34 @@ window.TREMPLIN_CONFIG = {
      Le domaine formationhavening.fr est déjà autorisé dans le Gestionnaire d'événements. */
   META_PIXEL_ID: "2088643361918756",
 
-  /* ActiveCampaign : mêmes réglages que assets/config.js du site.
-     - formulaire n°5 : ajoute le tag « formulaire-complete » (déclenche les relances)
-     - formulaire n°8 : ajoute le tag « reservation-confirmee » (arrête les relances) */
+  /* ActiveCampaign : même compte que le site (assets/config.js). */
   AC_ACCOUNT: "https://repenndu.activehosted.com",
   AC_ORG_ID: "92658a11-3180-4102-8e5e-a5ddd4012abc",
-  AC_FORM_ID: "5",
+
+  /* À COMPLÉTER — numéro du formulaire ActiveCampaign « Vidéo auto-havening »
+     (champs prénom + e-mail, ajoute le tag « video-auto-havening », qui
+     déclenche l'e-mail de livraison). Voir LISEZMOI.
+     NE PAS remettre "5" : ce formulaire déclenche les relances du questionnaire.
+     Tant qu'il est vide, les inscriptions arrivent seulement dans Formspree
+     et AUCUN e-mail de livraison ne part. */
+  AC_FORM_ID: "",
+
+  /* Formulaire n°8 : ajoute le tag « reservation-confirmee » à la réservation
+     Calendly, pour arrêter les relances. */
   AC_BOOKING_FORM_ID: "8",
 
   /* Formspree : même compte que formulaire.html (copie de sécurité des contacts) */
   FORMSPREE_ID: "mgoqqdyg",
 
-  /* Étiquette envoyée avec chaque contact, pour comparer avec l'ancien tunnel */
-  SOURCE: "source-tremplin",
+  /* Étiquette envoyée à Formspree avec chaque inscription */
+  SOURCE: "video-auto-havening",
 
-  /* À COMPLÉTER — identifiant YouTube de la vidéo de 90 s d'Aurélie
-     (les 11 caractères après "v=" dans l'adresse YouTube) */
+  /* À COMPLÉTER — image d'aperçu de la vidéo de 15 min sur la page d'inscription
+     (déposer l'image dans le dossier tremplin/, ex. "apercu-video.jpg") */
+  PREVIEW_IMG: "",
+
+  /* À COMPLÉTER — identifiant YouTube de la vidéo de 90 s d'Aurélie sur la page
+     Tremplin (les 11 caractères après "v=" dans l'adresse YouTube) */
   YOUTUBE_ID: "",
 
   /* Liens légaux du pied de page */

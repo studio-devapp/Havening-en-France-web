@@ -27,21 +27,21 @@
 
     <!-- === 1. BANDEAU DE CONFIRMATION + ÉTAPES === -->
     <ol class="steps" aria-label="Votre progression">
-      <li class="done">Coordonnées envoyées</li>
-      <li class="current" aria-current="step">Vidéo de 90 secondes</li>
-      <li>Choix du créneau</li>
+      <li class="done">Vidéo envoyée</li>
+      <li class="current" aria-current="step">Message d'Aurélie</li>
+      <li>Appel découverte</li>
     </ol>
 
+    <!-- Bandeau : texte de la page cible + consigne « Promotions / Indésirables »
+         reprise de la page de remerciement du document d'inscription -->
     <div class="confirm" role="status">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
-      <p><strong id="confirm-title">Merci, votre demande est bien enregistrée.</strong><br>Il reste une étape : choisir le créneau de votre appel, plus bas sur cette page.</p>
-      <!-- Si un document (PDF, replay) est envoyé par email, remplacer la phrase ci-dessus par :
-           « Votre document arrive dans votre boîte de réception d'ici 2 minutes. » -->
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      <p><strong id="confirm-title">Félicitations, votre vidéo a bien été envoyée.</strong> Elle arrive dans votre boîte de réception d'ici 2 minutes.<br><span class="confirm-hint">Vous ne la voyez pas&nbsp;? Regardez dans vos dossiers «&nbsp;Promotions&nbsp;» ou «&nbsp;Indésirables&nbsp;».</span></p>
     </div>
 
     <!-- === 2. ACCROCHE === -->
     <section class="tremplin-head">
-      <h1>Et si ce nouvel outil devenait le pilier de votre pratique thérapeutique&nbsp;?</h1>
+      <h1>Pendant que votre vidéo arrive&nbsp;: et si ce nouvel outil devenait le pilier de votre pratique thérapeutique&nbsp;?</h1>
     </section>
 
     <!-- === 3. VIDÉO D'AURÉLIE (90 s) ===
@@ -66,14 +66,14 @@
          Renseigner CALENDLY_URL dans config.js. -->
     <section class="booking" id="creneau" aria-labelledby="booking-title">
       <h2 id="booking-title">Réservez votre session stratégique offerte (20&nbsp;min)</h2>
-      <p class="lead">Choisissez le créneau qui vous convient pour échanger avec notre équipe pédagogique. Cet appel n'engage à rien&nbsp;: il sert à voir si la certification Havening® correspond aux besoins de votre cabinet.</p>
+      <p class="lead">Choisissez le créneau qui vous convient ci-dessous pour un appel découverte gratuit de 20 minutes. Cet appel n'engage à rien&nbsp;: il sert à évaluer si la certification Havening® correspond à vos besoins.</p>
       <div class="calendar" id="calendar">
         <div class="calendar-ph">
           <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
           <p>L'agenda de réservation s'affichera ici.</p>
         </div>
       </div>
-      <p class="booked" id="booked" role="status">Votre appel est réservé. Vous allez recevoir une confirmation par email, et nous vous appellerons au numéro indiqué.</p>
+      <p class="booked" id="booked" role="status">Votre appel est réservé. Vous allez recevoir une confirmation par e-mail, et Aurélie vous appellera au numéro indiqué.</p>
     </section>
 
   </div>
@@ -87,7 +87,7 @@
       <div class="duo" aria-hidden="true"><span>SC</span><span>AP</span></div>
       <div>
         <h2>Pourquoi cet échange&nbsp;?</h2>
-        <p>En tant que formatrices certifiées par le Dr Ronald Ruden, nous tenons à accompagner personnellement chaque futur praticien. Nous n'accueillons dans nos promotions que des professionnels pour qui la méthode psychosensorielle de 4e vague sera un véritable levier clinique. Cet appel nous permet de le vérifier ensemble.</p>
+        <p>En tant que formatrices certifiées en Techniques de Havening®, nous tenons à accompagner personnellement chaque futur praticien. Cet appel découverte de 20 minutes vous permet de poser vos questions sur la formation et de voir avec nous comment cette approche psychosensorielle de quatrième vague pourrait devenir un véritable levier clinique dans votre pratique.</p>
         <p class="sign">Aurélie Penndu-Ouaknine et Susan Cortese</p>
       </div>
     </div>
@@ -117,7 +117,7 @@
   /* Prénom dans le bandeau */
   if (lead.prenom) {
     document.getElementById('confirm-title').textContent =
-      'Merci ' + lead.prenom + ', votre demande est bien enregistrée.';
+      'Félicitations ' + lead.prenom + ', votre vidéo a bien été envoyée.';
   }
 
   /* Événement « Lead » : une seule fois, et seulement après un vrai envoi
@@ -144,9 +144,10 @@
   /* Calendly intégré, pré-rempli avec le nom et l'email */
   if (C.CALENDLY_URL) {
     var url = C.CALENDLY_URL + (C.CALENDLY_URL.indexOf('?') > -1 ? '&' : '?') + 'hide_gdpr_banner=1';
-    if (lead.prenom) url += '&name=' + encodeURIComponent((lead.prenom + ' ' + (lead.nom || '')).trim());
+    /* L'inscription ne demande que le prénom : il remplit le champ « Prénom » de Calendly.
+       Le visiteur saisit son nom et son téléphone dans Calendly. */
+    if (lead.prenom) url += '&first_name=' + encodeURIComponent(lead.prenom);
     if (lead.email) url += '&email=' + encodeURIComponent(lead.email);
-    if (lead.tel) url += '&a1=' + encodeURIComponent(lead.tel); /* 1re question Calendly = téléphone */
     var cal = document.getElementById('calendar');
     cal.innerHTML = '<div class="calendly-inline-widget" data-url="' + url.replace(/"/g, '&quot;') + '"></div>';
     var s = document.createElement('script');

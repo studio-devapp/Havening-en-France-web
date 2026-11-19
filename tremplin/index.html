@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Réservez votre appel découverte | Havening® France</title>
+<title>Vidéo gratuite : l'Auto-Havening® pour vos clients | Havening® France</title>
+<meta name="description" content="Vidéo gratuite de 15 minutes pour les praticiens : découvrez et vivez l'auto-havening, un outil de régulation à transmettre à vos clients.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -14,7 +15,7 @@
 </head>
 <body>
 
-<!-- === EN-TÊTE === -->
+<!-- === EN-TÊTE (logo seul, pas de menu) === -->
 <header class="site-header">
   <div class="logo">
     <small>Centre de formation</small>
@@ -22,108 +23,173 @@
   </div>
 </header>
 
-<main class="col">
+<main>
 
-  <!-- === INTRODUCTION === -->
-  <section class="intro">
-    <h1>Réservez votre appel découverte Havening®</h1>
-    <p class="lead">Vingt minutes avec l'équipe pédagogique pour voir comment les Techniques de Havening® peuvent compléter votre pratique : EMDR, EFT, hypnose, coaching ou thérapie.</p>
-    <ul class="facts">
-      <li>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        <span>20 minutes par téléphone</span>
-      </li>
-      <li>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v8H4v-8M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg>
-        <span>Offert et sans engagement</span>
-      </li>
-      <li>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
-        <span>Avec une formatrice certifiée par le Dr Ronald Ruden</span>
-      </li>
-    </ul>
+  <!-- === BANDEAU D'OUVERTURE : titre, aperçu vidéo, formulaire === -->
+  <section class="hero">
+    <div class="wide hero-grid">
+
+      <div class="hero-text">
+        <h1>Vos clients arrivent en séance déjà submergés&nbsp;? Offrez-leur un geste pour s'apaiser seuls.</h1>
+        <p class="lead">Vidéo gratuite de 15 minutes pour les praticiens de l'accompagnement (EFT, EMDR, approche polyvagale, coaching)&nbsp;: découvrez et vivez l'auto-havening, un outil de régulation à transmettre à vos clients.</p>
+      </div>
+
+      <!-- Aperçu de la vidéo de 15 min. Image : renseigner PREVIEW_IMG dans config.js.
+           Un clic amène au formulaire : la vidéo elle-même est envoyée par email. -->
+      <div class="hero-preview">
+        <button type="button" class="preview" id="preview" aria-label="Recevoir la vidéo : aller au formulaire">
+          <span class="preview-inner">
+            <span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="preview-label">15 minutes, exercice guidé avec Aurélie</span>
+          </span>
+        </button>
+      </div>
+
+      <!-- === FORMULAIRE : prénom + email + consentement === -->
+      <div class="hero-form" id="inscription">
+        <section class="form-card" aria-labelledby="form-title">
+          <h2 id="form-title">Recevez la vidéo par e-mail</h2>
+          <p class="intro-line">Indiquez votre adresse, le lien vous est envoyé tout de suite.</p>
+
+          <form id="video-form" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="prenom">Prénom</label>
+                <input id="prenom" name="prenom" type="text" autocomplete="given-name" required>
+                <p class="err" id="prenom-err" role="alert"></p>
+              </div>
+              <div class="field">
+                <label for="email">Adresse e-mail</label>
+                <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
+                <p class="err" id="email-err" role="alert"></p>
+              </div>
+
+              <div>
+                <label class="check">
+                  <input type="checkbox" id="optin" name="optin" required>
+                  <span>J'accepte de recevoir la vidéo ainsi que les e-mails d'Aurélie Penndu-Ouaknine sur l'auto-havening. Je peux me désinscrire à tout moment.</span>
+                </label>
+                <p class="check-err" id="optin-err" role="alert"></p>
+              </div>
+
+              <!-- Piège anti-robots : reste vide pour un humain -->
+              <div class="hp" aria-hidden="true">
+                <label for="site">Ne pas remplir</label>
+                <input id="site" name="site" type="text" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div>
+                <p class="form-error" id="form-error" role="alert"></p>
+                <button class="btn" type="submit" id="submit-btn">Envoyez-moi la vidéo</button>
+                <p class="consent" style="margin-top:14px;">Pour savoir comment vos données sont utilisées, consultez notre <a class="privacy-link" href="#" target="_blank" rel="noopener">politique de confidentialité</a>.</p>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+
+    </div>
   </section>
 
-  <!-- === FORMULAIRE COURT (4 champs) === -->
-  <section class="form-card" aria-labelledby="form-title">
-    <h2 id="form-title" style="font-size:1.35rem;margin-bottom:6px;">Vos coordonnées</h2>
-    <p class="consent" style="margin-bottom:22px;">Vous choisirez votre créneau à l'étape suivante.</p>
+  <!-- === DANS CETTE VIDÉO === -->
+  <section class="learn">
+    <div class="wide">
+      <h2>Dans cette vidéo, vous allez&nbsp;:</h2>
+      <ul class="learn-list">
+        <li>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+          <span><strong>Essayer un exercice guidé d'Auto-Havening® avec moi</strong> et observer ce que vous ressentez pendant la pratique.</span>
+        </li>
+        <li>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+          <span><strong>Comprendre</strong> ce qu'est l'Auto-Havening® et découvrir ce que les recherches sur les Techniques de Havening® permettent d'en dire à ce jour.</span>
+        </li>
+        <li>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+          <span><strong>Repérer les moments</strong> où vous pourriez le proposer, en début ou en fin de séance, ou entre deux rendez-vous.</span>
+        </li>
+        <li>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+          <span><strong>Identifier les précautions</strong> à prendre et les situations où il vaut mieux éviter l'exercice.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-    <form id="tremplin-form" novalidate>
-      <div class="form-grid two">
-        <div class="field">
-          <label for="prenom">Prénom</label>
-          <input id="prenom" name="prenom" type="text" autocomplete="given-name" required>
-          <p class="err" id="prenom-err" role="alert"></p>
-        </div>
-        <div class="field">
-          <label for="nom">Nom</label>
-          <input id="nom" name="nom" type="text" autocomplete="family-name" required>
-          <p class="err" id="nom-err" role="alert"></p>
-        </div>
-        <div class="field full">
-          <label for="email">Adresse email</label>
-          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
-          <p class="err" id="email-err" role="alert"></p>
-        </div>
-        <div class="field full">
-          <label for="tel">Téléphone</label>
-          <input id="tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" required>
-          <p class="hint">Nous vous appellerons à ce numéro au créneau choisi.</p>
-          <p class="err" id="tel-err" role="alert"></p>
-        </div>
-
-        <!-- Piège anti-robots : reste vide pour un humain -->
-        <div class="hp" aria-hidden="true">
-          <label for="site">Ne pas remplir</label>
-          <input id="site" name="site" type="text" tabindex="-1" autocomplete="off">
-        </div>
-
-        <div class="full">
-          <p class="form-error" id="form-error" role="alert"></p>
-          <button class="btn" type="submit" id="submit-btn">Réserver mon appel découverte</button>
-          <p class="consent" style="margin-top:14px;">En envoyant ce formulaire, vous acceptez d'être recontacté(e) par le Centre de Formation Havening® France au sujet de la formation. <a id="privacy-link" href="#" target="_blank" rel="noopener">Confidentialité</a></p>
+  <!-- === POUR QUI ? / QUI SUIS-JE ? === -->
+  <section class="about">
+    <div class="wide about-grid">
+      <div>
+        <h2>Pour qui&nbsp;?</h2>
+        <p>Cette vidéo s'adresse aux thérapeutes, aux professionnels de santé et aux coachs qui souhaitent découvrir une pratique sans matériel, que leurs clients peuvent aussi utiliser chez eux entre deux séances.</p>
+      </div>
+      <div>
+        <h2>Qui suis-je&nbsp;?</h2>
+        <div class="who">
+          <!-- Photo : remplacer AP par <img src="aurelie.jpg" alt="Aurélie Penndu-Ouaknine">
+               en déposant la photo dans ce dossier tremplin/. -->
+          <div class="portrait" aria-hidden="true">AP</div>
+          <p>Je suis Aurélie Penndu-Ouaknine, pharmacienne de formation, naturopathe et formatrice certifiée en Techniques de Havening®. J'utilise l'Auto-Havening® dans mes accompagnements. Dans cette vidéo, je vous invite à l'expérimenter avec moi.</p>
         </div>
       </div>
-    </form>
+    </div>
+  </section>
+
+  <!-- === RAPPEL === -->
+  <section class="reminder">
+    <div class="wide reminder-inner">
+      <p>15 minutes pour découvrir un outil que vos clients emporteront chez eux.</p>
+      <a class="btn" href="#inscription" id="reminder-btn">Je reçois la vidéo gratuite</a>
+    </div>
   </section>
 
 </main>
 
-<!-- === PIED DE PAGE MINIMAL === -->
+<!-- === PIED DE PAGE === -->
 <footer class="site-footer">
+  <p class="disclaimer">L'Auto-Havening® est une approche complémentaire à visée de bien-être. Il ne remplace ni un diagnostic ni un suivi médical ou psychologique.</p>
   <a id="legal-link" href="#" target="_blank" rel="noopener">Mentions légales</a>
-  <a id="privacy-link-2" href="#" target="_blank" rel="noopener">Politique de confidentialité</a>
+  <a class="privacy-link" href="#" target="_blank" rel="noopener">Politique de confidentialité</a>
   <a href="#" data-link="cookies">Gérer les cookies</a>
 </footer>
 
 <script>
 /* =====================================================================
-   FORMULAIRE → Formspree + ActiveCampaign → merci.html
+   INSCRIPTION → Formspree + ActiveCampaign → merci.html (page Tremplin)
    ===================================================================== */
 (function () {
   var C = window.TREMPLIN_CONFIG || {};
   document.getElementById('legal-link').href = C.LEGAL_URL || '#';
-  document.getElementById('privacy-link').href = C.PRIVACY_URL || '#';
-  document.getElementById('privacy-link-2').href = C.PRIVACY_URL || '#';
+  document.querySelectorAll('.privacy-link').forEach(function (a) { a.href = C.PRIVACY_URL || '#'; });
 
-  /* Mémorise les paramètres utm_ de l'URL (pour savoir d'où vient le contact) */
+  /* Image d'aperçu de la vidéo */
+  if (C.PREVIEW_IMG) document.getElementById('preview').style.backgroundImage = 'url("' + C.PREVIEW_IMG + '")';
+
+  /* L'aperçu et le bouton du bas amènent au formulaire et placent le curseur dans « Prénom » */
+  function goToForm(e) {
+    if (e) e.preventDefault();
+    document.getElementById('inscription').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(function () { document.getElementById('prenom').focus({ preventScroll: true }); }, 450);
+  }
+  document.getElementById('preview').addEventListener('click', goToForm);
+  document.getElementById('reminder-btn').addEventListener('click', goToForm);
+
+  /* Mémorise les paramètres utm_ de l'URL (pour savoir quelle publicité a amené le contact) */
   var utm = {};
   new URLSearchParams(location.search).forEach(function (v, k) {
     if (k.indexOf('utm_') === 0 || k === 'fbclid') utm[k] = v;
   });
 
-  var form = document.getElementById('tremplin-form');
+  var form = document.getElementById('video-form');
   var btn = document.getElementById('submit-btn');
   var formError = document.getElementById('form-error');
+  var optin = document.getElementById('optin');
+  var optinErr = document.getElementById('optin-err');
 
   var rules = {
     prenom: function (v) { return v ? '' : 'Indiquez votre prénom.'; },
-    nom:    function (v) { return v ? '' : 'Indiquez votre nom.'; },
-    email:  function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? '' : 'Indiquez une adresse email valide, par exemple nom@domaine.fr.'; },
-    tel:    function (v) { return v.replace(/\D/g, '').length >= 9 ? '' : 'Indiquez un numéro de téléphone complet.'; }
+    email:  function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? '' : 'Indiquez une adresse e-mail valide, par exemple nom@domaine.fr.'; }
   };
-
   function check(name) {
     var input = form.elements[name];
     var msg = rules[name](input.value.trim());
@@ -131,17 +197,24 @@
     input.setAttribute('aria-invalid', msg ? 'true' : 'false');
     return !msg;
   }
+  function checkOptin() {
+    var msg = optin.checked ? '' : 'Cochez la case pour recevoir la vidéo par e-mail.';
+    optinErr.textContent = msg;
+    optin.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    return !msg;
+  }
   Object.keys(rules).forEach(function (n) {
     form.elements[n].addEventListener('input', function () {
       if (this.getAttribute('aria-invalid') === 'true') check(n);
     });
   });
+  optin.addEventListener('change', function () { if (optinErr.textContent) checkOptin(); });
 
   function newEventId() {
     return 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 9);
   }
 
-  /* Formspree : envoi classique, renvoie true si accepté */
+  /* Formspree : copie de sécurité de chaque inscription */
   function sendFormspree(data) {
     if (!C.FORMSPREE_ID) return Promise.resolve(false);
     var ctrl = new AbortController();
@@ -155,27 +228,15 @@
       .catch(function () { clearTimeout(t); return false; });
   }
 
-  /* Téléphone au format international (+33…) : ActiveCampaign refuse les autres formats */
-  function toIntl(tel) {
-    var t = tel.replace(/[^\d+]/g, '');
-    if (t.indexOf('+') === 0) return t;
-    if (t.indexOf('00') === 0) return '+' + t.slice(2);
-    if (t.indexOf('33') === 0 && t.length === 11) return '+' + t;
-    if (t.indexOf('0') === 0 && t.length === 10) return '+33' + t.slice(1);
-    return t;
-  }
-
-  /* ActiveCampaign : méthode proc.php par balise script (contourne le CORS),
-     identique au questionnaire du site */
+  /* ActiveCampaign : formulaire « Vidéo auto-havening » (méthode proc.php,
+     contourne le CORS). C'est lui qui déclenche l'e-mail de livraison. */
   function sendActiveCampaign(d) {
     return new Promise(function (resolve) {
-      if (!C.AC_ACCOUNT || !C.AC_FORM_ID) { console.info('[Tremplin] ActiveCampaign non configuré (config.js).'); return resolve(false); }
+      if (!C.AC_ACCOUNT || !C.AC_FORM_ID) { console.info('[Tremplin] Formulaire ActiveCampaign de la vidéo non configuré (config.js).'); return resolve(false); }
       var id = C.AC_FORM_ID;
       var q = '/proc.php?u=' + id + '&f=' + id + '&s=&c=0&m=0&act=sub&v=2&or=' + encodeURIComponent(C.AC_ORG_ID || '') +
               '&firstname=' + encodeURIComponent(d.prenom) +
-              '&lastname=' + encodeURIComponent(d.nom) +
               '&email=' + encodeURIComponent(d.email) +
-              '&phone=' + encodeURIComponent(d.telIntl) +
               '&jsonp=true';
       var s = document.createElement('script');
       var done = false;
@@ -192,8 +253,8 @@
     e.preventDefault();
     formError.classList.remove('show');
 
-    var valid = ['prenom', 'nom', 'email', 'tel'].map(check).every(Boolean);
-    if (!valid) {
+    var ok = [check('prenom'), check('email'), checkOptin()].every(Boolean);
+    if (!ok) {
       var first = form.querySelector('[aria-invalid="true"]');
       if (first) first.focus();
       return;
@@ -202,36 +263,34 @@
 
     var d = {
       prenom: form.elements.prenom.value.trim(),
-      nom: form.elements.nom.value.trim(),
-      email: form.elements.email.value.trim(),
-      tel: form.elements.tel.value.trim()
+      email: form.elements.email.value.trim()
     };
-    d.telIntl = toIntl(d.tel);
     var eid = newEventId();
 
     btn.disabled = true;
     btn.textContent = 'Envoi en cours…';
 
     var payload = Object.assign({}, d, utm, {
-      source: C.SOURCE || 'source-tremplin',
+      consentement_emails: 'oui',
+      source: C.SOURCE || 'video-auto-havening',
       page: location.href.split('?')[0],
       event_id: eid
     });
 
     Promise.all([sendFormspree(payload), sendActiveCampaign(d)]).then(function (res) {
-      var anyConfigured = !!(C.FORMSPREE_ID || C.AC_PROC_URL);
+      var anyConfigured = !!(C.FORMSPREE_ID || (C.AC_ACCOUNT && C.AC_FORM_ID));
       if (anyConfigured && !res[0] && !res[1]) {
         btn.disabled = false;
-        btn.textContent = 'Réserver mon appel découverte';
+        btn.textContent = 'Envoyez-moi la vidéo';
         formError.textContent = "L'envoi n'a pas abouti. Vérifiez votre connexion internet puis cliquez à nouveau sur le bouton.";
         formError.classList.add('show');
         return;
       }
-      /* Les coordonnées restent dans l'onglet (jamais dans l'adresse de la page) :
-         elles servent à pré-remplir Calendly sur la page suivante. */
+      /* Prénom et e-mail restent dans l'onglet (jamais dans l'adresse de la page) :
+         ils servent à personnaliser la page Tremplin et à préremplir Calendly. */
       try {
         sessionStorage.setItem('tremplin', JSON.stringify({
-          prenom: d.prenom, nom: d.nom, email: d.email, tel: d.telIntl, eid: eid, leadSent: false
+          prenom: d.prenom, email: d.email, eid: eid, leadSent: false
         }));
       } catch (err) {}
       location.href = 'merci.html?eid=' + encodeURIComponent(eid);
