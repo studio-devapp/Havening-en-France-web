@@ -24,7 +24,7 @@ window.TREMPLIN_CONFIG = {
      NE PAS remettre "5" : ce formulaire déclenche les relances du questionnaire.
      Tant qu'il est vide, les inscriptions arrivent seulement dans Formspree
      et AUCUN e-mail de livraison ne part. */
-  AC_FORM_ID: "",
+  AC_FORM_ID: "9",
 
   /* Formulaire n°8 : ajoute le tag « reservation-confirmee » à la réservation
      Calendly, pour arrêter les relances. */
