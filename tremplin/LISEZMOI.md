@@ -49,7 +49,6 @@ Déjà renseignés : Calendly (`/new-meeting`), compte ActiveCampaign, formulair
 
 - `PRIVACY_URL` : politique de confidentialité, citée deux fois sur la page d'inscription.
 
-Photo de Susan et Aurélie ensemble : déposer `susan-aurelie.jpg` dans le dossier, puis suivre le commentaire dans `merci.html`.
 
 ## ActiveCampaign : à créer
 

@@ -373,7 +373,13 @@ a.btn { text-decoration: none; }
   border: 3px solid var(--linen);
 }
 .duo span + span { margin-left: -16px; background: var(--gold-p); }
-.duo img { width: 100%; max-width: 220px; border-radius: 14px; display: block; }
+/* Deux portraits ronds qui se chevauchent légèrement */
+.duo img {
+  display: block; width: 96px; height: 96px; object-fit: cover;
+  border-radius: 50%; border: 3px solid var(--linen);
+}
+.duo img + img { margin-left: -14px; }
+@media (min-width: 768px) { .duo img { width: 112px; height: 112px; } }
 .why h2 { font-size: 1.35rem; margin-bottom: 10px; }
 .why p { color: var(--ink2); }
 .why .sign { font-style: italic; font-size: 1rem; font-weight: 500; color: var(--b800); margin-top: 12px; }
