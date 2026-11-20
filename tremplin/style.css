@@ -428,3 +428,105 @@ a.btn { text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+/* =====================================================================
+   PAGE VIDÉO (video.html) — pratique guidée + atelier
+   ===================================================================== */
+.eyebrow {
+  display: block;
+  font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--b600); margin-bottom: 12px;
+}
+
+/* Haut de page + vidéo */
+.lm-top { background: var(--b050); padding: 44px 0 40px; text-align: center; }
+.lm-top h1 { max-width: 760px; margin: 0 auto 16px; }
+.lm-top .lead { max-width: 600px; margin: 0 auto 28px; }
+.lm-video { max-width: 820px; margin: 0 auto; }
+.lm-video .video { box-shadow: 0 18px 44px rgba(15,25,35,.12); }
+.video-meta {
+  list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px;
+  margin-top: 16px; font-size: .9rem; color: var(--mid);
+}
+.video-meta li { display: flex; align-items: center; gap: 7px; }
+.video-meta svg { flex: 0 0 16px; color: var(--b600); }
+
+/* Pour vivre pleinement la pratique : 3 étapes dans l'ordre */
+.lm-steps { padding: 52px 0; }
+.lm-steps h2 { text-align: center; margin-bottom: 26px; }
+.lm-steps ol { list-style: none; display: grid; gap: 14px; }
+.lm-steps li {
+  background: var(--b050); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px 20px 22px;
+}
+.step-num {
+  display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+  background: var(--b600); color: #fff; font-family: var(--serif); font-weight: 700; font-size: 1rem;
+  margin-bottom: 12px;
+}
+.lm-steps h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--b900); margin-bottom: 6px; }
+.lm-steps p { font-size: .97rem; color: var(--ink2); }
+
+/* Et vous, qui prend soin de vous ? */
+.lm-self { background: var(--b050); padding: 52px 0; }
+.lm-self-grid { display: grid; gap: 28px; align-items: start; }
+.lm-self h2 { margin-bottom: 14px; }
+.lm-self p { color: var(--ink2); }
+.mirror {
+  background: #fff; border: 1px solid var(--border); border-radius: 14px 14px 14px 4px;
+  padding: 22px 22px;
+}
+.mirror h3 { font-size: 1rem; font-weight: 600; color: var(--b900); margin-bottom: 12px; }
+.mirror ul { list-style: none; display: grid; gap: 12px; }
+.mirror li { display: flex; gap: 12px; align-items: flex-start; font-size: .97rem; }
+.mirror svg { flex: 0 0 20px; margin-top: 3px; color: var(--b600); }
+
+/* Offre atelier : bandeau bleu + fiche prix */
+.lm-offer { background: var(--b600); color: #fff; padding: 56px 0; }
+.lm-offer-grid { display: grid; gap: 32px; align-items: start; }
+.lm-offer .eyebrow { color: rgba(255,255,255,.85); }
+.lm-offer h2 { color: #fff; margin-bottom: 16px; }
+.lm-offer p { color: rgba(255,255,255,.92); }
+.lm-offer .price-card p { color: var(--ink2); }
+.lm-offer .price-card .format, .lm-offer .price-card .secure { color: var(--mid); }
+.lm-offer .price-card .price { color: var(--b600); }
+.benefits { list-style: none; display: grid; gap: 10px; margin: 22px 0 26px; }
+.benefits li { display: flex; gap: 12px; align-items: flex-start; }
+.benefits svg { flex: 0 0 20px; margin-top: 4px; }
+.for-you {
+  border: 1px solid rgba(255,255,255,.35); border-radius: 12px; padding: 16px 18px;
+  font-size: .95rem;
+}
+.for-you strong { display: block; font-weight: 600; margin-bottom: 4px; color: #fff; }
+.price-card {
+  background: #fff; color: var(--ink2); border-radius: 14px 14px 14px 4px;
+  padding: 26px 22px; box-shadow: 0 18px 40px rgba(0,0,0,.14);
+}
+.price-card h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; color: var(--b900); }
+.price-card .format { font-size: .95rem; color: var(--mid); margin-top: 4px; }
+.price { font-family: var(--serif); font-weight: 800; font-size: 2.6rem; line-height: 1.1; color: var(--b600); margin: 14px 0 4px; }
+.price small { font-family: var(--sans); font-size: .85rem; font-weight: 400; color: var(--mid); margin-left: 6px; }
+.price-card .date-note { font-size: .95rem; padding: 14px 0 18px; border-top: 1px solid var(--border); margin-top: 14px; }
+.price-card .btn { width: 100%; display: flex; text-decoration: none; }
+.secure { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: .85rem; color: var(--mid); margin-top: 12px; }
+
+/* Vos accompagnatrices */
+.lm-coaches { padding: 52px 0; }
+.lm-coaches h2 { text-align: center; margin-bottom: 26px; }
+.coach-grid { display: grid; gap: 16px; }
+.coach { display: flex; gap: 16px; align-items: flex-start; border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+.coach h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--b900); margin-bottom: 4px; }
+.coach p { font-size: .95rem; color: var(--ink2); }
+
+.trademark { font-size: .85rem; color: var(--mid); margin-bottom: 10px; }
+
+@media (min-width: 768px) {
+  .lm-top { padding: 64px 0 56px; }
+  .lm-steps, .lm-self, .lm-coaches { padding: 72px 0; }
+  .lm-offer { padding: 80px 0; }
+  .lm-steps ol { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .lm-self-grid { grid-template-columns: 1.1fr 1fr; gap: 48px; }
+  .lm-offer-grid { grid-template-columns: 1.2fr 1fr; gap: 56px; }
+  .price-card { padding: 30px 28px; }
+  .coach-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+}

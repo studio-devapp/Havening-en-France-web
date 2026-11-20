@@ -6,8 +6,9 @@ Ce dossier est indépendant : il ne modifie ni `index.html` ni `formulaire.html`
 
 1. **Page d'inscription** (`index.html`) : le visiteur demande la vidéo gratuite de 5 minutes sur l'auto-havening (prénom, e-mail, case de consentement).
 2. **Page Tremplin** (`merci.html`) : confirmation d'envoi, message vidéo de 90 s d'Aurélie, calendrier Calendly pour l'appel découverte de 20 minutes sur la certification.
-3. **E-mail de livraison** (ActiveCampaign) : le lien vers la vidéo de 5 minutes.
-4. **Séquence de conseils** (ActiveCampaign, à rédiger), puis l'atelier auto-havening.
+3. **E-mail de livraison** (ActiveCampaign) : le bouton « Regarder la vidéo » ouvre la **page vidéo** (`video.html`).
+4. **Page vidéo** (`video.html`) : la pratique guidée de 5 minutes, puis l'offre de l'atelier auto-havening (49 €, ThriveCart).
+5. **Séquence de conseils** (ActiveCampaign, à rédiger), puis l'atelier auto-havening.
 
 ## Contenu
 
@@ -15,6 +16,7 @@ Ce dossier est indépendant : il ne modifie ni `index.html` ni `formulaire.html`
 |---|---|
 | `index.html` | Page d'inscription à la vidéo gratuite |
 | `merci.html` | Page Tremplin : confirmation, vidéo, Calendly intégré, mot des formatrices |
+| `video.html` | Page vidéo ouverte depuis l'e-mail : pratique guidée + atelier |
 | `config.js` | **Seul fichier de réglages** |
 | `pixel.js` | Pixel Meta et bandeau cookies |
 | `style.css` | Mise en forme commune aux deux pages |
@@ -23,6 +25,7 @@ Ce dossier est indépendant : il ne modifie ni `index.html` ni `formulaire.html`
 
 Adresses une fois en ligne :
 - inscription : `https://rejoindre.formationhavening.fr/tremplin/`
+- page vidéo (lien du bouton de l'e-mail) : `https://rejoindre.formationhavening.fr/tremplin/video.html`
 - page Tremplin : `https://rejoindre.formationhavening.fr/tremplin/merci.html`
 
 ## Mise en ligne
@@ -41,6 +44,10 @@ Déjà renseignés : Calendly (`/new-meeting`), compte ActiveCampaign, formulair
 - `AC_FORM_ID` : numéro du formulaire ActiveCampaign « Vidéo auto-havening » (voir ci-dessous). **Indispensable** : tant qu'il est vide, aucun e-mail de livraison ne part.
 - `PREVIEW_IMG` : image d'aperçu de la vidéo de 5 minutes.
 - `YOUTUBE_ID` : vidéo de 90 s d'Aurélie pour la page Tremplin.
+- `PRATIQUE_YOUTUBE_ID` : vidéo de la pratique guidée (5 min, YouTube « non répertoriée ») pour `video.html`.
+- `UNSUBSCRIBE_URL` : lien « Se désinscrire » de `video.html` (par défaut, un e-mail à Aurélie).
+
+Photo de Susan : déposer `susan.jpg` dans le dossier, puis suivre le commentaire dans `video.html`.
 - `PRIVACY_URL` : politique de confidentialité, citée deux fois sur la page d'inscription.
 
 Photo de Susan et Aurélie ensemble : déposer `susan-aurelie.jpg` dans le dossier, puis suivre le commentaire dans `merci.html`.

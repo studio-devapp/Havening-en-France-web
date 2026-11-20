@@ -50,6 +50,19 @@ window.TREMPLIN_CONFIG = {
      Tremplin (les 11 caractères après "v=" dans l'adresse YouTube) */
   YOUTUBE_ID: "",
 
+  /* === PAGE VIDÉO (video.html, ouverte depuis l'e-mail de livraison) === */
+
+  /* À COMPLÉTER — identifiant YouTube de la vidéo d'auto-havening (5 min),
+     vidéo « non répertoriée » (les 11 caractères après "v=") */
+  PRATIQUE_YOUTUBE_ID: "",
+
+  /* Page de vente ThriveCart de l'atelier (dates et horaires gérés dans ThriveCart) */
+  ATELIER_URL: "https://aureliepenndu.thrivecart.com/atelier-auto-havening-v2/",
+
+  /* Lien « Se désinscrire » du pied de page. Par défaut : e-mail à Aurélie.
+     La désinscription automatique reste le lien en bas de chaque e-mail. */
+  UNSUBSCRIBE_URL: "mailto:aurelie.penndu@gmail.com?subject=D%C3%A9sinscription",
+
   /* Liens légaux du pied de page */
   LEGAL_URL: "https://techniquesdehavening.fr/mentions-legales/",
   PRIVACY_URL: "https://techniquesdehavening.fr/mentions-legales/" /* remplacer par la page « Politique de confidentialité » si elle existe */
