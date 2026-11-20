@@ -42,9 +42,9 @@ window.TREMPLIN_CONFIG = {
   /* Étiquette envoyée à Formspree avec chaque inscription */
   SOURCE: "video-auto-havening",
 
-  /* À COMPLÉTER — image d'aperçu de la vidéo de 5 min sur la page d'inscription
-     (déposer l'image dans le dossier tremplin/, ex. "apercu-video.jpg") */
-  PREVIEW_IMG: "",
+  /* Image d'aperçu de la vidéo de 5 min sur la page d'inscription
+     (elle contient déjà le bouton de lecture et le texte) */
+  PREVIEW_IMG: "apercu-video.jpg",
 
   /* À COMPLÉTER — identifiant YouTube de la vidéo de 90 s d'Aurélie sur la page
      Tremplin (les 11 caractères après "v=" dans l'adresse YouTube) */
@@ -59,9 +59,6 @@ window.TREMPLIN_CONFIG = {
   /* Page de vente ThriveCart de l'atelier (dates et horaires gérés dans ThriveCart) */
   ATELIER_URL: "https://aureliepenndu.thrivecart.com/atelier-auto-havening-v2/",
 
-  /* Lien « Se désinscrire » du pied de page. Par défaut : e-mail à Aurélie.
-     La désinscription automatique reste le lien en bas de chaque e-mail. */
-  UNSUBSCRIBE_URL: "mailto:aurelie.penndu@gmail.com?subject=D%C3%A9sinscription",
 
   /* Liens légaux du pied de page */
   LEGAL_URL: "https://techniquesdehavening.fr/mentions-legales/",

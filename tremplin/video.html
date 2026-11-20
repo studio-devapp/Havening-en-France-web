@@ -9,9 +9,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
-<script src="config.js?v=5"></script>
-<script src="pixel.js?v=5"></script>
+<link rel="stylesheet" href="style.css?v=7">
+<script src="config.js?v=7"></script>
+<script src="pixel.js?v=7"></script>
 </head>
 <body>
 
@@ -135,9 +135,7 @@
           </div>
         </div>
         <div class="coach">
-          <!-- Photo : remplacer SC par <img src="susan.jpg" alt="Susan Cortese" width="400" height="400" loading="lazy">
-               en déposant la photo dans ce dossier tremplin/. -->
-          <div class="portrait" aria-hidden="true">SC</div>
+<div class="portrait"><img src="susan.jpg" alt="Susan Cortese" width="400" height="400" loading="lazy"></div>
           <div>
             <h3>Susan Cortese</h3>
             <p>Maître-praticienne en PNL, coach certifiée, formatrice depuis 30 ans. Première formatrice Havening® en France.</p>
@@ -154,7 +152,6 @@
   <p class="trademark">Havening Techniques® est une marque déposée de Ronald Ruden.</p>
   <a id="legal-link" href="#" target="_blank" rel="noopener">Mentions légales</a>
   <a id="privacy-link" href="#" target="_blank" rel="noopener">Confidentialité</a>
-  <a id="unsub-link" href="#">Se désinscrire</a>
   <a href="#" data-link="cookies">Gérer les cookies</a>
 </footer>
 
@@ -166,7 +163,6 @@
   var C = window.TREMPLIN_CONFIG || {};
   document.getElementById('legal-link').href = C.LEGAL_URL || '#';
   document.getElementById('privacy-link').href = C.PRIVACY_URL || '#';
-  document.getElementById('unsub-link').href = C.UNSUBSCRIBE_URL || '#';
 
   /* Vidéo YouTube non répertoriée, sans lecture automatique */
   if (C.PRATIQUE_YOUTUBE_ID) {

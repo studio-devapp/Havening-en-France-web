@@ -21,7 +21,9 @@ Ce dossier est indépendant : il ne modifie ni `index.html` ni `formulaire.html`
 | `pixel.js` | Pixel Meta et bandeau cookies |
 | `style.css` | Mise en forme commune aux deux pages |
 | `logo-havening.jpg` | Logo affiché en haut des deux pages |
-| `aurelie.jpg` | Photo d'Aurélie (« Qui suis-je ? ») |
+| `aurelie.jpg` | Photo d'Aurélie (inscription et page vidéo) |
+| `susan.jpg` | Photo de Susan (page vidéo) |
+| `apercu-video.jpg` | Aperçu de la vidéo sur la page d'inscription |
 
 Adresses une fois en ligne :
 - inscription : `https://rejoindre.formationhavening.fr/tremplin/`
@@ -42,12 +44,9 @@ Déjà renseignés : Calendly (`/new-meeting`), compte ActiveCampaign, formulair
 
 **À compléter :**
 - `AC_FORM_ID` : numéro du formulaire ActiveCampaign « Vidéo auto-havening » (voir ci-dessous). **Indispensable** : tant qu'il est vide, aucun e-mail de livraison ne part.
-- `PREVIEW_IMG` : image d'aperçu de la vidéo de 5 minutes.
 - `YOUTUBE_ID` : vidéo de 90 s d'Aurélie pour la page Tremplin.
 - `PRATIQUE_YOUTUBE_ID` : vidéo de la pratique guidée (5 min, YouTube « non répertoriée ») pour `video.html`.
-- `UNSUBSCRIBE_URL` : lien « Se désinscrire » de `video.html` (par défaut, un e-mail à Aurélie).
 
-Photo de Susan : déposer `susan.jpg` dans le dossier, puis suivre le commentaire dans `video.html`.
 - `PRIVACY_URL` : politique de confidentialité, citée deux fois sur la page d'inscription.
 
 Photo de Susan et Aurélie ensemble : déposer `susan-aurelie.jpg` dans le dossier, puis suivre le commentaire dans `merci.html`.

@@ -151,6 +151,11 @@ h2 {
 }
 .preview:hover .play { transform: scale(1.06); background: rgba(255,255,255,.12); }
 .preview-label { font-size: .92rem; color: rgba(255,255,255,.9); }
+/* Avec l'image d'aperçu : elle porte déjà le bouton et le texte */
+.preview.has-img .preview-inner { background: none; }
+.preview.has-img .play, .preview.has-img .preview-label { visibility: hidden; }
+.preview.has-img { transition: transform .25s ease, box-shadow .25s ease; }
+.preview.has-img:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.18); }
 
 .form-card {
   background: #fff;
@@ -410,6 +415,7 @@ a.btn { text-decoration: none; }
   .hero-grid {
     grid-template-columns: 1fr 380px;
     grid-template-areas: "text form" "preview form";
+    grid-template-rows: auto 1fr;   /* l'aperçu suit le texte, sans espace vide */
     column-gap: 48px; row-gap: 28px;
     align-items: start;
   }
