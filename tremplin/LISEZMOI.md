@@ -18,6 +18,7 @@ Ce dossier est indépendant : il ne modifie ni `index.html` ni `formulaire.html`
 | `config.js` | **Seul fichier de réglages** |
 | `pixel.js` | Pixel Meta et bandeau cookies |
 | `style.css` | Mise en forme commune aux deux pages |
+| `logo-havening.jpg` | Logo affiché en haut des deux pages |
 
 Adresses une fois en ligne :
 - inscription : `https://rejoindre.formationhavening.fr/tremplin/`
@@ -80,6 +81,12 @@ Photos : déposer `aurelie.jpg` et `susan-aurelie.jpg` dans le dossier, puis sui
 > *Vous recevez cet e-mail parce que vous avez demandé la vidéo sur formationhavening.fr.* %UNSUBSCRIBELINK%
 
 Points à vérifier : l'adresse de réponse (le document indique `aurelie.pendu@gmail.com`, avec un seul « n ») ; de préférence un expéditeur sur le domaine du site, avec l'adresse Gmail en adresse de réponse.
+
+**3. Champ « Métier de l'accompagnement »** (question facultative Oui / Non)
+- *Contacts* → *Champs* → *Ajouter un champ* : type **Boutons radio**, nom `AD - Métier accompagnement`, options `Oui` et `Non` (exactement ces mots).
+- L'ajouter au formulaire n°9 (onglet *Champs* de l'éditeur), puis *Intégrer* pour enregistrer.
+- Relever son numéro (`field[N]` dans le code d'intégration) et le mettre dans `AC_FIELD_METIER`.
+- Sans ce réglage, la réponse est enregistrée uniquement dans Formspree.
 
 ## Ce que mesure le Pixel
 

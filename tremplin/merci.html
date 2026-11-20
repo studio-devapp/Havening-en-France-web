@@ -8,18 +8,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2">
-<script src="config.js?v=2"></script>
-<script src="pixel.js?v=2"></script>
+<link rel="stylesheet" href="style.css?v=3">
+<script src="config.js?v=3"></script>
+<script src="pixel.js?v=3"></script>
 </head>
 <body>
 
 <!-- === EN-TÊTE (logo seul, pas de menu) === -->
 <header class="site-header">
-  <div class="logo">
-    <small>Centre de formation</small>
-    <strong>Havening® France</strong>
-  </div>
+  <img class="logo-img" src="logo-havening.jpg" alt="Techniques de Havening® France, formations et communauté" width="940" height="300">
 </header>
 
 <main>
@@ -27,9 +24,8 @@
 
     <!-- === 1. BANDEAU DE CONFIRMATION + ÉTAPES === -->
     <ol class="steps" aria-label="Votre progression">
-      <li class="done">Vidéo envoyée</li>
-      <li class="current" aria-current="step">Message d'Aurélie</li>
-      <li>Appel découverte</li>
+      <li class="done">Auto-Havening® gratuit envoyé par e-mail</li>
+      <li class="current" aria-current="step">Appel découverte</li>
     </ol>
 
     <!-- Bandeau : texte de la page cible + consigne « Promotions / Indésirables »
@@ -174,18 +170,6 @@
       try { sessionStorage.setItem('tremplin', JSON.stringify(lead)); } catch (e) {}
     }
   });
-
-  /* L'étape « Choix du créneau » s'allume quand le calendrier arrive à l'écran */
-  if ('IntersectionObserver' in window) {
-    var steps = document.querySelectorAll('.steps li');
-    new IntersectionObserver(function (entries, obs) {
-      if (entries[0].isIntersecting) {
-        steps[1].className = 'done'; steps[1].removeAttribute('aria-current');
-        steps[2].className = 'current'; steps[2].setAttribute('aria-current', 'step');
-        obs.disconnect();
-      }
-    }, { threshold: 0.3 }).observe(document.getElementById('calendar'));
-  }
 })();
 </script>
 </body>

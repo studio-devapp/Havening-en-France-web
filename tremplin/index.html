@@ -9,18 +9,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2">
-<script src="config.js?v=2"></script>
-<script src="pixel.js?v=2"></script>
+<link rel="stylesheet" href="style.css?v=3">
+<script src="config.js?v=3"></script>
+<script src="pixel.js?v=3"></script>
 </head>
 <body>
 
 <!-- === EN-TÊTE (logo seul, pas de menu) === -->
 <header class="site-header">
-  <div class="logo">
-    <small>Centre de formation</small>
-    <strong>Havening® France</strong>
-  </div>
+  <img class="logo-img" src="logo-havening.jpg" alt="Techniques de Havening® France, formations et communauté" width="940" height="300">
 </header>
 
 <main>
@@ -63,6 +60,15 @@
                 <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
                 <p class="err" id="email-err" role="alert"></p>
               </div>
+
+              <!-- Question facultative, aucune réponse présélectionnée -->
+              <fieldset class="choice">
+                <legend>Exercez-vous actuellement un métier de l'accompagnement&nbsp;? <span class="optional">(facultatif)</span></legend>
+                <div class="choice-options">
+                  <label><input type="radio" name="metier" value="Oui"> Oui</label>
+                  <label><input type="radio" name="metier" value="Non"> Non</label>
+                </div>
+              </fieldset>
 
               <div>
                 <label class="check">
@@ -237,6 +243,9 @@
       var q = '/proc.php?u=' + id + '&f=' + id + '&s=&c=0&m=0&act=sub&v=2&or=' + encodeURIComponent(C.AC_ORG_ID || '') +
               '&firstname=' + encodeURIComponent(d.prenom) +
               '&email=' + encodeURIComponent(d.email) +
+              /* Réponse « métier de l'accompagnement », seulement si elle est donnée
+                 et si le champ ActiveCampaign est renseigné dans config.js */
+              (d.metier && C.AC_FIELD_METIER ? '&field[' + C.AC_FIELD_METIER + ']=' + encodeURIComponent(d.metier) : '') +
               '&jsonp=true';
       var s = document.createElement('script');
       var done = false;
@@ -261,9 +270,11 @@
     }
     if (form.elements.site.value) return; /* robot */
 
+    var metierInput = form.querySelector('input[name="metier"]:checked');
     var d = {
       prenom: form.elements.prenom.value.trim(),
-      email: form.elements.email.value.trim()
+      email: form.elements.email.value.trim(),
+      metier: metierInput ? metierInput.value : ''
     };
     var eid = newEventId();
 
@@ -271,6 +282,7 @@
     btn.textContent = 'Envoi en cours…';
 
     var payload = Object.assign({}, d, utm, {
+      metier: d.metier || 'sans réponse',
       consentement_emails: 'oui',
       source: C.SOURCE || 'video-auto-havening',
       page: location.href.split('?')[0],

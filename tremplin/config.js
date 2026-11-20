@@ -26,6 +26,11 @@ window.TREMPLIN_CONFIG = {
      et AUCUN e-mail de livraison ne part. */
   AC_FORM_ID: "9",
 
+  /* À COMPLÉTER — numéro du champ ActiveCampaign « AD - Métier accompagnement »
+     (question facultative Oui / Non du formulaire). Voir LISEZMOI.
+     Tant qu'il est vide, la réponse est enregistrée seulement dans Formspree. */
+  AC_FIELD_METIER: "",
+
   /* Formulaire n°8 : ajoute le tag « reservation-confirmee » à la réservation
      Calendly, pour arrêter les relances. */
   AC_BOOKING_FORM_ID: "8",
