@@ -25,11 +25,12 @@ window.TREMPLIN_CONFIG = {
      Tant qu'il est vide, les inscriptions arrivent seulement dans Formspree
      et AUCUN e-mail de livraison ne part. */
   AC_FORM_ID: "9",
+  /* Identifiant technique propre au formulaire n°9 (valeur "or" de son code d'intégration) */
+  AC_FORM_OR: "aebbb33c-933e-4152-9a4a-2b191ded23da",
 
-  /* À COMPLÉTER — numéro du champ ActiveCampaign « AD - Métier accompagnement »
-     (question facultative Oui / Non du formulaire). Voir LISEZMOI.
-     Tant qu'il est vide, la réponse est enregistrée seulement dans Formspree. */
-  AC_FIELD_METIER: "",
+  /* Champ ActiveCampaign « AD - Métier accompagnement » (boutons radio Oui / Non),
+     ajouté au formulaire n°9 */
+  AC_FIELD_METIER: "20",
 
   /* Formulaire n°8 : ajoute le tag « reservation-confirmee » à la réservation
      Calendly, pour arrêter les relances. */
@@ -41,7 +42,7 @@ window.TREMPLIN_CONFIG = {
   /* Étiquette envoyée à Formspree avec chaque inscription */
   SOURCE: "video-auto-havening",
 
-  /* À COMPLÉTER — image d'aperçu de la vidéo de 15 min sur la page d'inscription
+  /* À COMPLÉTER — image d'aperçu de la vidéo de 5 min sur la page d'inscription
      (déposer l'image dans le dossier tremplin/, ex. "apercu-video.jpg") */
   PREVIEW_IMG: "",
 

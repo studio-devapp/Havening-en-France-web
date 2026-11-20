@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Vidéo gratuite : l'Auto-Havening® pour vos clients | Havening® France</title>
-<meta name="description" content="Vidéo gratuite de 15 minutes pour les praticiens : découvrez et vivez l'auto-havening, un outil de régulation à transmettre à vos clients.">
+<meta name="description" content="Vidéo gratuite de 5 minutes pour les praticiens : découvrez et vivez l'auto-havening, un outil de régulation à transmettre à vos clients.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=3">
-<script src="config.js?v=3"></script>
-<script src="pixel.js?v=3"></script>
+<link rel="stylesheet" href="style.css?v=5">
+<script src="config.js?v=5"></script>
+<script src="pixel.js?v=5"></script>
 </head>
 <body>
 
@@ -28,16 +28,16 @@
 
       <div class="hero-text">
         <h1>Vos clients arrivent en séance déjà submergés&nbsp;? Offrez-leur un geste pour s'apaiser seuls.</h1>
-        <p class="lead">Vidéo gratuite de 15 minutes pour les praticiens de l'accompagnement (EFT, EMDR, approche polyvagale, coaching)&nbsp;: découvrez et vivez l'auto-havening, un outil de régulation à transmettre à vos clients.</p>
+        <p class="lead">Vidéo gratuite de 5 minutes pour les praticiens de l'accompagnement (EFT, EMDR, approche polyvagale, coaching)&nbsp;: découvrez et vivez l'auto-havening, un outil de régulation à transmettre à vos clients.</p>
       </div>
 
-      <!-- Aperçu de la vidéo de 15 min. Image : renseigner PREVIEW_IMG dans config.js.
+      <!-- Aperçu de la vidéo de 5 min. Image : renseigner PREVIEW_IMG dans config.js.
            Un clic amène au formulaire : la vidéo elle-même est envoyée par email. -->
       <div class="hero-preview">
         <button type="button" class="preview" id="preview" aria-label="Recevoir la vidéo : aller au formulaire">
           <span class="preview-inner">
             <span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-            <span class="preview-label">15 minutes, exercice guidé avec Aurélie</span>
+            <span class="preview-label">5 minutes, exercice guidé avec Aurélie</span>
           </span>
         </button>
       </div>
@@ -132,9 +132,7 @@
       <div>
         <h2>Qui suis-je&nbsp;?</h2>
         <div class="who">
-          <!-- Photo : remplacer AP par <img src="aurelie.jpg" alt="Aurélie Penndu-Ouaknine">
-               en déposant la photo dans ce dossier tremplin/. -->
-          <div class="portrait" aria-hidden="true">AP</div>
+<div class="portrait"><img src="aurelie.jpg" alt="Aurélie Penndu-Ouaknine" width="400" height="400" loading="lazy"></div>
           <p>Je suis Aurélie Penndu-Ouaknine, pharmacienne de formation, naturopathe et formatrice certifiée en Techniques de Havening®. J'utilise l'Auto-Havening® dans mes accompagnements. Dans cette vidéo, je vous invite à l'expérimenter avec moi.</p>
         </div>
       </div>
@@ -144,7 +142,7 @@
   <!-- === RAPPEL === -->
   <section class="reminder">
     <div class="wide reminder-inner">
-      <p>15 minutes pour découvrir un outil que vos clients emporteront chez eux.</p>
+      <p>5 minutes pour découvrir un outil que vos clients emporteront chez eux.</p>
       <a class="btn" href="#inscription" id="reminder-btn">Je reçois la vidéo gratuite</a>
     </div>
   </section>
@@ -240,7 +238,7 @@
     return new Promise(function (resolve) {
       if (!C.AC_ACCOUNT || !C.AC_FORM_ID) { console.info('[Tremplin] Formulaire ActiveCampaign de la vidéo non configuré (config.js).'); return resolve(false); }
       var id = C.AC_FORM_ID;
-      var q = '/proc.php?u=' + id + '&f=' + id + '&s=&c=0&m=0&act=sub&v=2&or=' + encodeURIComponent(C.AC_ORG_ID || '') +
+      var q = '/proc.php?u=' + id + '&f=' + id + '&s=&c=0&m=0&act=sub&v=2&or=' + encodeURIComponent(C.AC_FORM_OR || C.AC_ORG_ID || '') +
               '&firstname=' + encodeURIComponent(d.prenom) +
               '&email=' + encodeURIComponent(d.email) +
               /* Réponse « métier de l'accompagnement », seulement si elle est donnée

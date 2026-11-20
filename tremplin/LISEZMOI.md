@@ -4,9 +4,9 @@ Ce dossier est indépendant : il ne modifie ni `index.html` ni `formulaire.html`
 
 ## Le parcours
 
-1. **Page d'inscription** (`index.html`) : le visiteur demande la vidéo gratuite de 15 minutes sur l'auto-havening (prénom, e-mail, case de consentement).
+1. **Page d'inscription** (`index.html`) : le visiteur demande la vidéo gratuite de 5 minutes sur l'auto-havening (prénom, e-mail, case de consentement).
 2. **Page Tremplin** (`merci.html`) : confirmation d'envoi, message vidéo de 90 s d'Aurélie, calendrier Calendly pour l'appel découverte de 20 minutes sur la certification.
-3. **E-mail de livraison** (ActiveCampaign) : le lien vers la vidéo de 15 minutes.
+3. **E-mail de livraison** (ActiveCampaign) : le lien vers la vidéo de 5 minutes.
 4. **Séquence de conseils** (ActiveCampaign, à rédiger), puis l'atelier auto-havening.
 
 ## Contenu
@@ -19,6 +19,7 @@ Ce dossier est indépendant : il ne modifie ni `index.html` ni `formulaire.html`
 | `pixel.js` | Pixel Meta et bandeau cookies |
 | `style.css` | Mise en forme commune aux deux pages |
 | `logo-havening.jpg` | Logo affiché en haut des deux pages |
+| `aurelie.jpg` | Photo d'Aurélie (« Qui suis-je ? ») |
 
 Adresses une fois en ligne :
 - inscription : `https://rejoindre.formationhavening.fr/tremplin/`
@@ -38,11 +39,11 @@ Déjà renseignés : Calendly (`/new-meeting`), compte ActiveCampaign, formulair
 
 **À compléter :**
 - `AC_FORM_ID` : numéro du formulaire ActiveCampaign « Vidéo auto-havening » (voir ci-dessous). **Indispensable** : tant qu'il est vide, aucun e-mail de livraison ne part.
-- `PREVIEW_IMG` : image d'aperçu de la vidéo de 15 minutes.
+- `PREVIEW_IMG` : image d'aperçu de la vidéo de 5 minutes.
 - `YOUTUBE_ID` : vidéo de 90 s d'Aurélie pour la page Tremplin.
 - `PRIVACY_URL` : politique de confidentialité, citée deux fois sur la page d'inscription.
 
-Photos : déposer `aurelie.jpg` et `susan-aurelie.jpg` dans le dossier, puis suivre les commentaires dans `index.html` et `merci.html`.
+Photo de Susan et Aurélie ensemble : déposer `susan-aurelie.jpg` dans le dossier, puis suivre le commentaire dans `merci.html`.
 
 ## ActiveCampaign : à créer
 
@@ -60,13 +61,13 @@ Photos : déposer `aurelie.jpg` et `susan-aurelie.jpg` dans le dossier, puis sui
 **E-mail de livraison, prêt à coller**
 
 > **Objet :** Votre vidéo sur l'Auto-Havening® est là
-> **Texte d'aperçu :** 15 minutes pour découvrir et vivre l'exercice.
+> **Texte d'aperçu :** 5 minutes pour découvrir et vivre l'exercice.
 >
 > Bonjour %FIRSTNAME%,
 >
 > Merci pour votre inscription. Voici votre vidéo :
 >
-> **[Regarder la vidéo : L'Auto-Havening®, un outil de régulation à transmettre à vos clients]** ← bouton vers le lien de la vidéo de 15 min
+> **[Regarder la vidéo : L'Auto-Havening®, un outil de régulation à transmettre à vos clients]** ← bouton vers le lien de la vidéo de 5 min
 >
 > Un conseil avant de la lancer : installez-vous dans un endroit calme et choisissez une petite contrariété du quotidien, autour de 4 ou 5 sur 10. Vous allez faire l'exercice guidé avec moi, et c'est en le vivant qu'on le transmet le mieux.
 >
