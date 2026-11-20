@@ -516,6 +516,11 @@ a.btn { text-decoration: none; }
 .price-card .btn { width: 100%; display: flex; text-decoration: none; }
 .secure { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: .85rem; color: var(--mid); margin-top: 12px; }
 
+/* Témoignage vidéo */
+.lm-testimony { background: var(--b050); padding: 52px 0; }
+.lm-testimony h2 { text-align: center; margin-bottom: 24px; }
+@media (min-width: 768px) { .lm-testimony { padding: 72px 0; } }
+
 /* Vos accompagnatrices */
 .lm-coaches { padding: 52px 0; }
 .lm-coaches h2 { text-align: center; margin-bottom: 26px; }

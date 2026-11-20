@@ -40,12 +40,12 @@ La version précédente (formulaire d'appel à 4 champs) reste dans l'historique
 
 ## Réglages (`config.js`)
 
+Vidéos renseignées : Tremplin (`YOUTUBE_ID`), séance (`PRATIQUE_YOUTUBE_ID`), témoignage de Nadège (`TEMOIGNAGE_YOUTUBE_ID`).
+
 Déjà renseignés : Calendly (`/new-meeting`), compte ActiveCampaign, formulaire n°8 (tag `reservation-confirmee` à la réservation), Formspree, Pixel Meta.
 
 **À compléter :**
 - `AC_FORM_ID` : numéro du formulaire ActiveCampaign « Vidéo auto-havening » (voir ci-dessous). **Indispensable** : tant qu'il est vide, aucun e-mail de livraison ne part.
-- `YOUTUBE_ID` : vidéo de 90 s d'Aurélie pour la page Tremplin.
-- `PRATIQUE_YOUTUBE_ID` : vidéo de la pratique guidée (5 min, YouTube « non répertoriée ») pour `video.html`.
 
 - `PRIVACY_URL` : politique de confidentialité, citée deux fois sur la page d'inscription.
 

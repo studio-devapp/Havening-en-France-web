@@ -9,9 +9,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=7">
-<script src="config.js?v=7"></script>
-<script src="pixel.js?v=7"></script>
+<link rel="stylesheet" href="style.css?v=8">
+<script src="config.js?v=8"></script>
+<script src="pixel.js?v=8"></script>
 </head>
 <body>
 
@@ -122,6 +122,21 @@
     </div>
   </section>
 
+  <!-- === TÉMOIGNAGE VIDÉO (renseigner TEMOIGNAGE_YOUTUBE_ID dans config.js) === -->
+  <section class="lm-testimony" aria-labelledby="testimony-title">
+    <div class="wide">
+      <h2 id="testimony-title">Le témoignage de Nadège</h2>
+      <div class="lm-video">
+        <div class="video" id="temoignage-video">
+          <div class="video-ph">
+            <span class="play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+            <span>Le témoignage sera disponible ici très bientôt.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- === 6. VOS ACCOMPAGNATRICES === -->
   <section class="lm-coaches">
     <div class="wide">
@@ -164,18 +179,22 @@
   document.getElementById('legal-link').href = C.LEGAL_URL || '#';
   document.getElementById('privacy-link').href = C.PRIVACY_URL || '#';
 
-  /* Vidéo YouTube non répertoriée, sans lecture automatique */
-  if (C.PRATIQUE_YOUTUBE_ID) {
-    var box = document.getElementById('pratique-video');
+  /* Vidéos YouTube, sans lecture automatique */
+  function embed(boxId, videoId, title, lazy) {
+    if (!videoId) return;
+    var box = document.getElementById(boxId);
     if (location.protocol === 'file:') {
       box.querySelector('.video-ph span:last-child').innerHTML =
-        'Aperçu local : <a style="color:#fff" href="https://www.youtube.com/watch?v=' + C.PRATIQUE_YOUTUBE_ID + '" target="_blank" rel="noopener">ouvrir la vidéo sur YouTube</a>';
+        'Aperçu local : <a style="color:#fff" href="https://www.youtube.com/watch?v=' + videoId + '" target="_blank" rel="noopener">ouvrir la vidéo sur YouTube</a>';
     } else {
-      box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + C.PRATIQUE_YOUTUBE_ID +
-        '?rel=0&modestbranding=1&cc_load_policy=1&hl=fr" title="Pratique guidée d\'auto-havening"' +
+      box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + videoId +
+        '?rel=0&modestbranding=1&cc_load_policy=1&hl=fr" title="' + title + '"' +
+        (lazy ? ' loading="lazy"' : '') +
         ' allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"></iframe>';
     }
   }
+  embed('pratique-video', C.PRATIQUE_YOUTUBE_ID, "Séance guidée d'auto-havening", false);
+  embed('temoignage-video', C.TEMOIGNAGE_YOUTUBE_ID, 'Témoignage de Nadège', true);
 
   /* Bouton atelier : lien ThriveCart (réglable dans config.js) + suivi Meta,
      seulement si le visiteur a accepté les cookies */

@@ -46,15 +46,18 @@ window.TREMPLIN_CONFIG = {
      (elle contient déjà le bouton de lecture et le texte) */
   PREVIEW_IMG: "apercu-video.jpg",
 
-  /* À COMPLÉTER — identifiant YouTube de la vidéo de 90 s d'Aurélie sur la page
-     Tremplin (les 11 caractères après "v=" dans l'adresse YouTube) */
-  YOUTUBE_ID: "",
+  /* Identifiants YouTube = les 11 caractères à la fin du lien youtu.be/… */
+
+  /* Vidéo d'Aurélie sur la page Tremplin (merci.html) */
+  YOUTUBE_ID: "dSFmj9g6kfk",
 
   /* === PAGE VIDÉO (video.html, ouverte depuis l'e-mail de livraison) === */
 
-  /* À COMPLÉTER — identifiant YouTube de la vidéo d'auto-havening (5 min),
-     vidéo « non répertoriée » (les 11 caractères après "v=") */
-  PRATIQUE_YOUTUBE_ID: "",
+  /* Séance d'Auto-Havening® (5 min), lecteur principal en haut de page */
+  PRATIQUE_YOUTUBE_ID: "yKHSjsai164",
+
+  /* Témoignage vidéo de Nadège, au-dessus de « Vos accompagnatrices » */
+  TEMOIGNAGE_YOUTUBE_ID: "yCRCIrIMVVM",
 
   /* Page de vente ThriveCart de l'atelier (dates et horaires gérés dans ThriveCart) */
   ATELIER_URL: "https://aureliepenndu.thrivecart.com/atelier-auto-havening-v2/",
